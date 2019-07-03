@@ -13,16 +13,23 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
-
+\usepackage{enumitem}
+\usepackage{amssymb}
 %math environments
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{problem}[theorem]{Problem}
+
 \theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+%\newtheorem*{solution}{Solution}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{remark}{Remark}
 \newtheorem{notation}{Notation}
+
+\newenvironment{solution}{\paragraph{Solution:}}{\hfill$\blacksquare \\$}
+
+
 %opening
 \title{Advanced Calculus}
 \author{}
@@ -30,8 +37,105 @@
 \begin{document}
 
 \maketitle
+\newpage
+\tableofcontents
+\newpage
 
+\section{Vector Spaces}
+\subsection{Fundamental Notions}
+\subsubsection{First set of exercises}
+In what follows, A1, A2, A3, A4, S1, S2, S3, S4 refer to the axioms presented in the book.
+\begin{problem}
+	Prove S3 for $\RR^3$ using the explicit display form $\{x_1, x_2, x_3\}$ for ordered triples.
+\end{problem}
+\begin{solution}
 
-\section{Linear Algebra}
-\subsection{Vector Spaces}
+With $(x_1, x_2, x_3), (y_1, y_2, y_3) \in \RR^3$ and $x \in \RR$. 
+	\begin{align*} 
+		x((x_1, x_2, x_3) + (y_1, y_2, y_3)) &= x(x_1 + y_1, x_2 + y_2, x_3 + y_3) 8 \\ 
+	 &=  (x(x_1 + y_1), x(x_2 + y_2), x(x_3 + y_3)) \\
+	 &= (xx_1 + xy_1, xx_2 + xy_2, xx_3 + xy_3) \\
+	 &= (xy_1 + xx_1, xy_2 + xx_2, xy_3 + xx_3) \\
+	 &= (xy_1, xy_2, xy_3) + (xx_1, xx_2, xx_3) \\
+	 &= x(y_1, y_2, y_3) + x(x_1, x_2, x_3).
+	\end{align*}
+\end{solution}
+\begin{problem}
+	Show that given $\alpha$, the $\beta$ postualted in A4 is unique.
+\end{problem}
+\begin{solution}
+	Let $\alpha, \beta, \beta^\prime \in V$ a vector space over $\RR$, such that $\alpha + \beta = 0$ and $\alpha + \beta^\prime = 0$. By transitivity
+	\begin{align*}
+		\alpha + \beta &= \alpha + \beta^\prime \\
+		(\beta + \alpha) + \beta &= (\beta + \alpha) + \beta^\prime \\
+		0 + \beta &= 0 + \beta^\prime \\
+		\beta &= \beta^\prime
+	\end{align*}
+\end{solution}
+\begin{problem}
+	Prove similarly that $0\alpha = 0$, $x0 = 0$, and $(-1)\alpha = -\alpha$.
+\end{problem}
+\begin{solution}
+For the first equality, 
+\begin{align*}
+	0\alpha &= (0 + 0)\alpha \\
+	& = 0\alpha + 0\alpha,
+\end{align*}
+ by S2. Subtracting $0\alpha$ from both sides yields the desired identity. Proving $x0 = 0$ is identical, except S3 is used instead of S2. As for the last equation:
+ \begin{align*}
+ 	\alpha + (-1)\alpha &= (1 - 1)\alpha \\
+ 	&= 0\alpha \\
+ 	&= 0.
+ \end{align*}
+ We already determined that $-\alpha$ is unique, so it follows that $(-1)\alpha = -\alpha$.
+\end{solution}
+\begin{problem}
+	Prove that if $x\alpha = 0$, then either $x=0$ or $\alpha=0$.
+\end{problem}
+\begin{solution}
+	Assume $a \neq 0$ and $x \neq 0$. Since $\alpha \in \RR$ has an inverse $\alpha^{-1}$.
+	\begin{align*}
+		x\alpha = 0 &= 0 \\
+		x\alpha \alpha^{-1} &= 0 \alpha^{-1} \\
+		x &= 0.
+	\end{align*}
+	Contradiction.
+\end{solution}
+\begin{problem}
+	Prove S1 for a function space $\RR^4$. Prove S3.
+\end{problem}
+\begin{solution}
+	Let $x,y$ be elements of $\RR$, $f$ and $g$ real functions on $A$, and $a$ an element of $A$. \\
+	Since $f(a)$ is a real number, $(xy)f(a) = x(yf(a))$ is just a consequence of associativity in $\RR$. As for S3, note also that $g(a) \in \RR$, thus
+	\begin{align*}
+		x(f + g)(a) &= x(f(a) + g(a)) \\
+		&= xf(a) + xg(a).
+	\end{align*}
+Because no conditions were imposed on $a$, both equalities are valid for all elements of $A$.
+\end{solution}
+
+The following theorem is not mentioned (so far) in the book but it is quite useful for checking whether or not a certain set is a subspace.
+\begin{theorem}\label{subspace:1}
+	A subset $U$ of $V$ is a subspace of $V$ if and only if $U$ satisfies the following conditions:
+	\begin{enumerate}
+		\item $0 \in U$,
+		\item $\alpha, \beta \in U$ implies $\alpha + \beta \in U$,
+		\item $x \in \RR$ and $\alpha \in \RR$ implies $x\alpha \in U$.
+	\end{enumerate}
+\end{theorem}
+\begin{problem}
+	Given that $\alpha$ is any vector in a vector space $V$, show that the set $A = \{x\alpha \mid x \in \RR \}$ of all scalar multiples of $\alpha$ is a subspace of $V$.
+\end{problem}
+\begin{solution}
+	We can see that $0 \in A$  because $0 \alpha = 0$. Now take $\beta$ and $\gamma$ elements of $A$, 
+	\begin{align*}
+		\beta + \gamma &= x \alpha + y \alpha \\ 
+		&= (x + y)\alpha,
+	\end{align*}
+	which is clearly an element of $A$. Finally, taking $y \in \RR$, $y(x\alpha) = (yx) \alpha \in A$.
+	By theorem \ref{subspace:1}, $A$ is a subspace of $V$.
+\end{solution}
+\begin{problem}
+	Given that $\alpha$ and $\beta$ are any two vectors in $V$, show that the set of all vectors $x\alpha + y\beta$, where $x$ and $y$ are any real numbers, is a subspace of $V$.
+\end{problem}
 \end{document}
