@@ -137,4 +137,16 @@ The following theorem is not mentioned (so far) in the book but it is quite usef
 \begin{problem}
 	Given that $\alpha$ and $\beta$ are any two vectors in $V$, show that the set of all vectors $x\alpha + y\beta$, where $x$ and $y$ are any real numbers, is a subspace of $V$.
 \end{problem}
+\begin{solution}
+	Setting $x = y = 0$ shows that the additive identity is in the set. Let $\gamma = x\alpha + y\beta$ and $\delta = x'\alpha + y'\beta$.
+	\begin{align*}
+		\gamma + \delta &= (x\alpha + y\beta) + x'\alpha + y'\beta \\
+						&= (x+x')\alpha + (y + y')\beta.
+	\end{align*}
+	Finally, if $z \in \RR$ then $z(x\alpha + y\beta) = (zx)\alpha + (zy)\beta$.
+\end{solution}
+\begin{problem}
+	Show that the set of triples $\mathbf{x}$ in $\RR^3$ such that $x_1 - x_2 + 2x_3 = 0$ is a subspace $M$. If $N$ is the similar subspace $\{ \mathbf{x} \mid x_1 + x_2 + x_3 = 0 \}$, find a nonzero vector $\textbf{a}$ in $M \cap N$. Show that $M \cap N$ is the set $\{x\mathbf{x} \mid x \in \RR \}$ of all scalar multiples of $\mathbf{a}$.
+\end{problem}
+
 \end{document}
