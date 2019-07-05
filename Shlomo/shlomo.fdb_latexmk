@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1562350418 "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.tex" "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.pdf" "shlomo" 1562350418
+["pdflatex"] 1562350418 "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.tex" "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.pdf" "shlomo" 1562350499
   "/home/mdc/.texlive2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1558554241 4190795 636b69c43de683f68b710bb08e2b9ba3 ""
   "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.aux" 1562350418 759 9dddc7cfc241c4e0a381e6c44f518a08 ""
-  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.tex" 1562350418 6368 7470b4c6aacaf6a966501ca29d3f1ad0 ""
+  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.tex" 1562350498 6368 7470b4c6aacaf6a966501ca29d3f1ad0 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1530836625 2850648 765161d183c5509465c2744baf096a7a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
@@ -56,12 +56,12 @@
   "/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty" 1480098827 42666 6fa770e3485520a6a5f2ea7d259c8f8d ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1553009379 33523 3a2c32bd77384f8f4508d61b4be83582 ""
   "shlomo.aux" 1562350418 759 9dddc7cfc241c4e0a381e6c44f518a08 "pdflatex"
-  "shlomo.tex" 1562350418 6368 7470b4c6aacaf6a966501ca29d3f1ad0 ""
+  "shlomo.tex" 1562350498 6368 7470b4c6aacaf6a966501ca29d3f1ad0 ""
   "shlomo.toc" 1562350418 521 f7908ba50ad0b63f8786f95c1a52fa6a "pdflatex"
   (generated)
-  "shlomo.pdf"
   "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.log"
-  "shlomo.aux"
   "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.pdf"
+  "shlomo.aux"
+  "shlomo.pdf"
   "shlomo.log"
   "shlomo.toc"
