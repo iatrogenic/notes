@@ -172,4 +172,46 @@ a_1 &= -3a_2.
 So $\alpha = (a_1, a_2, a_3) = (a_1, - \frac{1}{3}a_1, -\frac{2}{3}a_1) = a_1(1, - \frac{1}{3}, - \frac{2}{3}) = a_13\mathbf{a}$
 
 \end{solution}
+\begin{problem}
+Let $A$ be the open interval $(0,1)$, and let $V$ be $\RR^A$.
+Given a point $x$ in $(0,1)$, let $V_x$ be the set of functions in $V$ that have a derivative at $x$.
+Show that $V_x$ is a subspace of $V$.
+\end{problem}
+\begin{solution}
+The constant function $I(x) = 0$ has a derivative at $x$ and it is the identity of $\RR^A$. Given $f(x),g(x)$	
+functions in $V_x$, we know that $(f+g)'(x) = f'(x) + g'(x) \Rightarrow f+g \in V_x$. Also, given $y \in \RR$, $(yf(x))' = yf'(x) \Rightarrow yf(x) \in V_x$.
+\end{solution}
+\begin{problem}
+ For any subsets $A$ and $B$ of a vectors space $V$ we define the set sum $A+B$ by $A+B = \{\alpha + \beta \mid \alpha \in A \text{ and } \beta \in B\}$.
+ Show that $(A+B)+C = A+(B+C)$.	
+\end{problem}
+\begin{solution}
+\begin{align*}
+(A+B)+C &= \{ (\alpha + \beta) + \gamma \mid \alpha \in A, \beta \in B, \gamma \in C\} \\
+&= \{ \alpha + (\beta + \gamma) \mid \alpha \in A, \beta \in B, \gamma \in C\} \\
+&= A + (B+C).	
+\end{align*}
+\end{solution}
+\begin{problem}
+Let $A \subset V$ and $X \subset \RR$, we similarly define, $XA = \{x\alpha \mid x \in X \text{ and } \alpha \in A\}$. 
+Show that a nonvoid set $A$ is a subspace if and only if $A+A = A$ and $\RR A = A$.	
+\end{problem}
+\begin{solution}
+	Let $A \neq \emptyset$. \\
+($\Rightarrow$) Suppose $A$ is a subspace, clearly $A+A = A$ by closure of addition on vector spaces. Likewise, $\RR A = A$ by closure under scalar multiplication. \\
+($ \Leftarrow $) Suppose $A+A=A$ and $\RR A = A$. Since $A \neq \emptyset$ then $0 \in A$. Let $\alpha, \beta$ be elements of $A$, $\alpha + \beta \in A+A = A$ by hypothesis. Finally, let $x$ be a real number and $\alpha$ and element of $A$, then $x\alpha \in \RR A = A$. By \ref{subspace:1}, A is a subspace of $V$.
+\end{solution}
+\begin{problem}
+Let $V$ be $\RR^2$, and let $M$ be the line through the origin with slope $k$. Let $\mathbf{x}$ be any nonzero vector in $M$. Show that $M$ is the subspace $\RR\mathbf{x} = \{t\mathbf{x} \mid t \in \RR\}$.	
+\end{problem}
+\begin{solution}
+$M$ is the set $\{(x, kx) \in \RR^2\} \subset \RR^2$. Let $\mathbf{x} = (x_1, kx_1) \neq 0$, if $t \in \RR$ then $t\mathbf{x} = (tx_1, tkx_1) \in M$, hence $\RR\mathbf{x} \subset M$.
+Conversely, if $(y, ky) \in M$ and $(y, ky) = y(1, k) = y\frac{1}{x_1}(x_1, kx_1) = yx_1^{-1}\mathbf{x} \in \RR\mathbf{x} \Rightarrow M \subset \RR\mathbf{x}$. Thus $M = \RR\mathbf{x}$.
+\end{solution}
+\begin{problem}
+Show that any other line $L$ with the same slope $k$ is of the form $M + \mathbf{a}$ for some $\mathbf{a}$.
+\end{problem}
+\begin{solution}
+	
+\end{solution}
 \end{document}
