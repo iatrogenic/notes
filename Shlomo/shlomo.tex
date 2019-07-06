@@ -43,6 +43,8 @@
 
 \section{Vector Spaces}
 \subsection{Fundamental Notions}
+\subsubsection{Summary}
+Not much is covered here. Vector spaces and subspaces are defined.
 \subsubsection{First set of exercises}
 In what follows, A1, A2, A3, A4, S1, S2, S3, S4 refer to the axioms presented in the book.
 \begin{problem}
@@ -210,6 +212,55 @@ Conversely, if $(y, ky) \in M$ and $(y, ky) = y(1, k) = y\frac{1}{x_1}(x_1, kx_1
 \end{solution}
 \begin{problem}
 Show that any other line $L$ with the same slope $k$ is of the form $M + \mathbf{a}$ for some $\mathbf{a}$.
+\end{problem}
+\begin{solution}
+Let $L$ be a line with slope $k$
+\begin{align*}
+	L &= \{(x, kx+b) \mid x \in \RR \} \\
+	  &= \{(x,kx) + (0,b) \mid x \in \RR \} \\
+	  &= \{(x, kx) \mid x \in \RR\} + (0,b) \\
+	  &= M + (0,b).
+\end{align*}	
+
+\end{solution}
+\begin{problem}
+	Let $M$ be a subspace of a vector space $V$, and let $\alpha$ and $\beta$ be any two vectors in $V$.
+	Given $A = \alpha + M$ and $B = \beta + M$, show that either $A = B$ or $A \cap B = \emptyset$.
+	Show also that $A+B=(\alpha + \beta)  + M$.	
+\end{problem}
+\begin{problem}
+State more carefully and prove what is meant by ``a subspace of a subspace is a subspace''.	
+\end{problem}
+\begin{solution}
+	Let $V$ be a vector space and $A$ a subspace of it. If $B$ is a subspace of $A$ then $B$ is also a subspace of $V$.
+	\\
+	To prove this, note that $B \subset A \subset V \Rightarrow B \subset V$, by hypothesis, all of the propositions of theorem \ref{subspace:1} are true and thus $B$ is a subspace of $V$.
+\end{solution}
+\begin{problem}
+Prove that the intersection of two subspaces of a vector space is always itself a subspace.	
+\end{problem}
+\begin{solution}
+Let $V$ be a vector space and $A,B$ subspaces of $V$. $0 \in A$ and $0 \in B \Rightarrow 0 \in A \cap B$. If $\alpha,\beta \in A \cap B$ then $\alpha,\beta \in A$ and $\alpha, \beta \in B$, since both are subspaces, $\alpha+\beta \in A$ and $\alpha + \beta \in B \Rightarrow \alpha+\beta \in A \cap B$. If $x \in \RR$ and $\alpha \in A \cap B$.
+\begin{align*}
+\alpha \in A \cap B & \Rightarrow \alpha \in A \wedge \alpha \in B \\
+& \Rightarrow x\alpha \in A \wedge x\alpha \in B \\
+& \Rightarrow x\alpha \in A \cap B.
+\end{align*} 
+\end{solution}
+\begin{problem}
+Prove more generally that the intersection $W = \cap_{i\in I} W_i$ of any family $\{W_i \mid i \in I \}$ of subspaces of $V$ is a subspace of $V$.
+\end{problem}
+\begin{solution}
+	By definiton of subspace, $0$ must be an element of every $W_i$ and is consequently an element of $W$. To check closure of addition consider $\alpha, \beta$ elements of $W$,
+	\begin{align*}
+	\alpha, \beta \in W & \Rightarrow \alpha, \beta \in W_i & \forall i \in I \\
+	& \Rightarrow \alpha + \beta \in W_i & \forall i \in I \\
+	& \Rightarrow \alpha + \beta \in W.
+	\end{align*}
+	Closure under scalar multiplication follows by similar reasoning. 
+\end{solution}
+\begin{problem}
+Let $V$ again be $\RR^{(0,1)}$, and let $W$ be the set of all functions $f$ in $V$ such that $f'(x)$ exists for every $x$ in $(0,1)$. Show that $W$ is the intersection of the collection of subspaces of the form $V_x$ that were considered in problem 9.	
 \end{problem}
 \begin{solution}
 	

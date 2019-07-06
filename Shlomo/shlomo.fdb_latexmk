@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1562396964 "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.tex" "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.pdf" "shlomo" 1562396964
+["pdflatex"] 1562437887 "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.tex" "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.pdf" "shlomo" 1562437959
   "/home/mdc/.texlive2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1558554241 4190795 636b69c43de683f68b710bb08e2b9ba3 ""
-  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.aux" 1562396964 1049 6cbab6cc2ffd5c59e77295fc2cbdb8a9 ""
-  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.tex" 1562396963 8954 1b68d2b81a73a954773b9e2e22790ae8 ""
+  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.aux" 1562437888 1360 cc84777eb27cb856a7bd1b56debd1386 ""
+  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.tex" 1562437959 11647 793a687bb2eb02b219479e3eaa2ff8f5 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1530836625 2850648 765161d183c5509465c2744baf096a7a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
@@ -57,13 +57,13 @@
   "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1553009392 8294 b0f177401f895563eb19304d2389582d ""
   "/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty" 1480098827 42666 6fa770e3485520a6a5f2ea7d259c8f8d ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1553009379 33523 3a2c32bd77384f8f4508d61b4be83582 ""
-  "shlomo.aux" 1562396964 1049 6cbab6cc2ffd5c59e77295fc2cbdb8a9 "pdflatex"
-  "shlomo.tex" 1562396963 8954 1b68d2b81a73a954773b9e2e22790ae8 ""
-  "shlomo.toc" 1562396964 721 5773497b00dcaea271719325fa731bcf "pdflatex"
+  "shlomo.aux" 1562437888 1360 cc84777eb27cb856a7bd1b56debd1386 "pdflatex"
+  "shlomo.tex" 1562437959 11647 793a687bb2eb02b219479e3eaa2ff8f5 ""
+  "shlomo.toc" 1562437888 942 e681c3681f00c8563d1581af3955ecf4 "pdflatex"
   (generated)
-  "shlomo.aux"
-  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.log"
-  "shlomo.pdf"
   "shlomo.log"
-  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.pdf"
+  "shlomo.pdf"
+  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.log"
   "shlomo.toc"
+  "shlomo.aux"
+  "/home/mdc/TeX/Notes/Notes/Shlomo/shlomo.pdf"
