@@ -501,6 +501,12 @@ By convention, the sum of an empty set of vectors is taken to be the zero vector
 \begin{problem}
 Show that the most general linear map from $\RR$ to $\RR$ is multiplication by a constant.	
 \end{problem}
+\begin{solution}
+	Let $f: \RR \to \RR$ be a linear map, $\alpha$ be a real number.
+	\[
+		f(\alpha) = f(\alpha \cdot 1) = \alpha f(1).
+	\]
+\end{solution}
 \begin{problem}
 	For a fixed $\alpha$ in $V$ the mapping $x \mapsto x \alpha$ from $\RR$ to $V$ is linear. Why?
 \end{problem}
@@ -513,16 +519,35 @@ Show that the most general linear map from $\RR$ to $\RR$ is multiplication by a
 \begin{problem}
 	Show that every linear mapping from $\RR$ to $V$ is of the form $x \mapsto x \alpha$ for a fixed vector $\alpha$ in $V$.
 \end{problem}
+\begin{solution}
+	Let $f: \RR \to V$ be a linear map. For $x \in \RR$, $f(x) = f(1 \cdot x) = xf(1)$, and $f(1) \in V$ by hypothesis.
+\end{solution}
 \begin{problem}
 	Show that every linear mapping from $\RR^2$ to $V$ is of the form $(x_1, x_2) \mapsto x_1\alpha_1 + x_2\alpha_2$ for a fixed pair of vectors $\alpha_1$ and $\alpha_2$ in $V$. What is the range of this mapping?
 \end{problem}
+\begin{solution}
+	Let $f: \RR^2 \to V$ be a linear map and $(x,y) \in \RR^2$. $f(x,y) = f(x(1,0) + y(0, 1)) = xf(1,0) + yf(0,1)$.
+\end{solution}
 \begin{problem}
-	Show that the map $f \mapsto \int_a^b f(t) \dt$ from $\mathcal{C}([a,b]])$ to $\RR$ does not preserve products.
+	Show that the map $f \mapsto \int_a^b f(t) \dt$ from $\mathcal{C}([a,b])$ to $\RR$ does not preserve products.
 \end{problem}
+\begin{solution}
+	Let $f,g \in \mathcal{C}([a,b])$. It is well known that 
+	\[
+		\int_a^b f(t)g(t) = \int_a^b f(t) \int_a^b g(t),
+	\]
+	is not generally true.
+\end{solution}
 \begin{problem}
 	Let $g$ be any fixed function in $\RR^A$. Prove that the mapping $T:\RR^A \to \RR^A$ defined by $T(f) = gf$ is linear.
 \end{problem}
+\begin{solution}
+	Let $f,h \in \RR^A$ and $\alpha, \beta \in \RR$. $T(\alpha f + \beta h) = g \alpha f + g \beta h = \alpha T(f) +  \beta T(h)$.
+\end{solution}
 \begin{problem}
 	Let $\varphi$ be any mapping from a set $A$ to a set $B$. Show that the composition by $\varphi$ is a linear mapping from $\RR^B$ to $\RR^A$. That is, show that $T:\RR^B \to \RR^A$ defined by $T(f) = f \circ \varphi $ is linear.	
 \end{problem}
+\begin{solution}
+	Let $f,g \in \RR^B, \alpha, \beta \in \RR$. $T(\alpha f + \beta g) = (\alpha f + \beta g) \circ \varphi = \alpha f \circ \varphi + \beta g \circ \varphi = \alpha T(f) + \beta T(g)$
+\end{solution}
 \end{document}
