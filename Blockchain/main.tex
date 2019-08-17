@@ -1,0 +1,52 @@
+
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fullpage}
+
+\newcommand{\Str}{\mathsf{String}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\pset}{\mathcal{P}}
+
+\newtheorem{theorem}{Theorem}[section]             \newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+%\newtheorem*{solution}{Solution}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}
+\newtheorem{notation}{Notation}
+
+\newenvironment{solution}{\paragraph{Solution:}}{\hfill$\blacksquare \\$}
+
+
+\title{Notes on Cryptocurrency}
+\author{}
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+\section{Cryptography and Cryptocurrencies}
+\begin{definition}
+	A hash function is an efficiently computable map with domain $\Str$ and codomain $\Str_{N}$.
+\end{definition}
+\begin{definition}
+	A hash function $H$ is said to be \textit{cryptographically secure} if it has the following properties:
+	\begin{itemize}
+		\item It is infeasible to find $x, y \in \Str$ such that $x \neq y$ and $H(x) = H(y)$.
+		\item If $r$ is chosen from a probability distribution that has \textit{high min-entropy}, then given $H(r \Vert x)$, it is infeasible to find $x$.
+		\item (Optional) 
+	\end{itemize}
+\end{definition}
+\end{document}

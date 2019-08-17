@@ -1,0 +1,108 @@
+
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{mathtools}
+
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\pset}{\mathcal{P}}
+
+\newtheorem{theorem}{Theorem}[section]             \newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+%\newtheorem*{solution}{Solution}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}
+\newtheorem{notation}{Notation}
+
+\newenvironment{solution}{\paragraph{Solution:}}{\hfill$\blacksquare \\$}
+
+\DeclareMathOperator{\Ima}{Im}
+
+\title{Notes of Linear Algebra}
+\author{}
+
+\begin{document}
+\maketitle
+\section{Vector Spaces}
+\subsection{Fundamental Notions}
+	The following theorem characterizes all linear transformations that have $\RR^n$ as domain space.
+	\begin{theorem} 
+		If $\beta_1 , \ldots, \beta_n$ is any fixed list of vectors in a vector space $W$, then its ``linear combination mapping" $\mathbf{x} \mapsto \sum_1^n x_i \beta_i$ is a linear transformation $T$ from $\RR^n$ to $W$, and $T(\delta^j) = \beta_j$ for $j = 1, \ldots, n$. Conversely, if $T$ is any linear mapping from $\RR^n$ to $W$, and if we set $\beta_j = T(\delta^j)$ for $j=1, \ldots, n$, then $T$ is the linear transformation mapping $\mathbf{x} \mapsto \sum_1^n x_i \beta_i$.
+	\end{theorem}
+	\begin{proof}
+		We will only prove the converse statement. Let $T : \RR^n \to W$ be a linear map and let $\beta_j = T(\delta^j)$. For any $\mathbf{x} = (x_1, \ldots ,x_n) \in \RR^n$ we have $T(\mathbf{x}) = T(\sum_1^n x_i\delta^i) = \sum_1^n x_i T(\delta^i) = \sum_1^n x_i \beta_i$.
+	\end{proof}
+
+	If $\alpha = (\alpha_1, \ldots, \alpha_n) \in W^n$ we will denote its corresponding linear combination mapping by $L_\alpha : \RR^n \to W$. If $T: \RR^n \to W$ is a linear map, we call the $n$-tuple $(T(\delta^1), \ldots, T(\delta^n))$ the \textit{skeleton} of $T$. With this terminology in mind the previous theorem can be restated as follows.
+	\begin{theorem}
+		For each $n$-tuple $\alpha$ in $W^n$, the map $L_\alpha : \RR^n \to W$ is linear and its skeleton is $\alpha$. Conversely, if $T$ is any linear map from $\RR^n$ to $W$, then $T = L_\beta$ where $\beta$ is the skeleton of $T$.
+	\end{theorem}
+	Or again:
+	\begin{theorem}
+		The map $\alpha \mapsto L_\alpha$ is a bijection from $W^n$ to the set of linear maps from $\RR^n$ to $\W$, and $T \mapsto \mathsf{skeleton}(T)$ is its inverse.
+	\end{theorem}
+	\begin{definition}
+		A \textit{linear functional} is a linear transformation from a vector space $V$ to the scalar field $\RR$.
+	\end{definition}
+	One special class of linear functionals are the so-called \textit{coordinate functionals}. The $i$-th coordinate functional is a linear functional $\pi_i$ from $\RR^I$ to $\RR$ and $i \in I$, defined by $\pi_i(f) \coloneqq f(i)$.
+
+	\begin{theorem}
+		Every linear mapping $T$ from $\RR^n$ to $\RR^m$ determines the $m \times n$ matrix $\bm t = \{t_{ij} \}$ having the skeleton of $T$ as its columns, and the expression of the equation $\bm y = T(\bm x)$ in linear combination form is equivalent to the $m$ scalar equations
+		\[
+			y_i = \sum_{j = 1}^n t_{ij}x_j
+		\]
+		Conversely, each $m \times n$ matrix $\bm t$ determines the linear combination mapping having the columns of $\bm t$ as its skeleton, and the mapping $\bm t \mapsto T$ is therefore a bijection from the set of all $m \times n$ matrices to the set of all linear maps from $\RR^n$ to $\RR^m$.
+	\end{theorem}
+	\begin{proof}
+		Let $T : \RR^n \to \RR^m$ be a linear transformation. The skeleton of this linear transformation is $(T(\delta^1), \ldots, T(\delta^n))$, each of elements is an element of $\RR^m$, now consider the following map: 
+		\[
+		\begin{bmatrix}
+			T(\delta^1) \\
+			\vdots \\
+			T(\delta^n)
+		\end{bmatrix} \mapsto
+		\begin{bmatrix}
+			b_{11} & \cdots & b_{n1} \\
+			\vdots & & \vdots \\
+			b_{1m} & \cdots & b_{nm}	
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			t_{11} & \cdots & t_{1n} \\
+			\vdots & & \vdots \\
+			t_{m1} & \cdots & t_{mn}
+		\end{bmatrix}
+	\]
+	Where $ \beta_i = T(\delta^i) = (b_{i1}, \ldots, b_{im})$ with $i = 1, \ldots, n$. The columns determine the skeleton of $T$ and thus determine $T$ itself, this process applies to any matrix and hence the map is invertible. (TO-DO: finish) 
+	\end{proof}
+	\begin{theorem}
+		If $T: V \to W$ is linear, then the $T$-image of the linear span of any subset $A \subset V$ is the linear span of the $T$-image of $A$, i.e., $ T[L(A)] = L(T[A])$. In particular, if $A$ is a subspace, then so is $T[A]$. Furthermore, if $Y$ is a subspace of $W$, then $T^{-1}[Y]$ is a subspace of $V$.
+	\end{theorem}
+	\begin{definition}
+		Given $T : V \to W$ linear, the subspace $T^{-1}(0) = \{ \alpha \in V : T(\alpha) = 0\}$ is called the \textit{null space}, or \textit{kernel}, of $T$, and is designated $\ker(T)$. The range of $T$ is the subspace $T[V]$ of $W$, which will be designated by $\Ima(T)$ 
+	\end{definition}
+	\begin{lemma}
+		A linear mapping $T$ is injective if and only if its null space is $\{0\}$.
+	\end{lemma}
+	\begin{definition}
+		Two vector spaces $V$ and $W$ are said to be isomorphic if there exists a bijective map $T: V \to W$ (also called an isomorphism).
+	\end{definition}
+	\begin{definition}
+		Let $T: V \to V$ be a linear map and $\alpha$ a vector in $V$. If $T(\alpha) = x\alpha$ for some $x$ in $\RR$, then $\alpha$ is called an \textit{eigenvector} and $x$ is the corresponding \textit{eigenvalue}.
+	\end{definition}
+	\subsection{Vector Spaces and Geometry}
+\end{document}
