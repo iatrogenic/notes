@@ -1,0 +1,120 @@
+
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fullpage}
+\usepackage{commath}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\pset}{\mathcal{P}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[theorem]
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+%\newtheorem*{solution}{Solution}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}
+\newtheorem*{notation}{Notation}
+
+\newenvironment{solution}{\paragraph{Solution:}}{\hfill$\blacksquare \\$}
+
+
+\title{Notes on Complex Analysis}
+\author{}
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+\section{Analytic Functions}
+\subsection{The Complex Number System}
+\begin{definition}
+Consider the following maps:
+\begin{itemize}
+	\item
+		\textbf{Addition}
+		\begin{gather*}
+			\RR^2 \times \RR^2 \to \RR^2 \\
+			(x_1, y_1) + (x_2, y_2) = (x_1 + x_2, y_1 + y_2)
+		\end{gather*} 
+	\item
+		\textbf{Scalar Multiplication}
+		\begin{gather*}
+			\RR \times \RR^2 \to \RR^2 \\
+			\alpha (x, y) = (\alpha x, \alpha y)
+		\end{gather*}
+	\item
+		\textbf{Multiplication}
+		\begin{gather*}
+			\RR^2 \times \RR^2 \to \RR^2	
+			(x_1, y_1) \cdot (x_2, y_2) = (x_1 x_2 - y_1 y_2, x_1 y_2 + y_1 x_2)
+		\end{gather*}
+\end{itemize}
+These operations, together with the set $\RR^2$, form a vector space over $\RR$, which we call the complex number system, denoted by $\CC$. We identify a real number $x$ with the pair $(x,0)$, and $(0,1)$ will be denoted by $i$. With this we recover the conventional notation, for 
+\[
+	(x,y) = (x,0) + (0,1)(y,0) = x + iy.
+\]
+We call the $x$-axis and $y$-axis by \emph{real} and \emph{imaginary} axis, respectively. Given $z = a+bi \in \CC$, we call $a$ the \emph{real part} of $z$, denoted by $\Re(z)$, and $b$ the \emph{imaginary part} of $z$, denoted by $\Im(z)$. Finally, $z$ is said to be a \emph{pure imaginary number} if $\Re(z) = a = 0$. 
+\end{definition}
+\subsubsection{Algebraic Properties}
+\begin{prop}
+	Let $z$ be a non-zero complex number, then there exists $z^\prime \in \CC$, such that
+	\[ z\cdot z^\prime = 1 , \]
+	called the inverse of $z$.
+\end{prop}
+\begin{proof}
+	Let $z = a+bi$ and $z^\prime = \frac{a}{a^2 + b^2} - \frac{ib}{a^2+b^2}$. $z \neq 0$ implies that $a^2 + b^2 \neq 0$. Furthermore,
+	\begin{align*}
+		z \cdot z^\prime &= (a+bi) \left (\frac{a}{a^2 + b^2} - \frac{ib}{a^2+b^2} \right) \\
+		&= \left ( \frac{a^2 + abi - abi + b^2}{a^2+b^2} \right ) \\
+		&= 1.
+	\end{align*}
+\end{proof}
+The inverse of a complex number $z$ is unique, and represented by $z^{-1}$; the symbol $z/w$ means $zw^{-1}$.
+\begin{theorem}
+	$\CC$, together with the previously defined addition and multiplication, is a field.	
+\end{theorem}
+\subsubsection{Roots of Quadratic Equations}
+\begin{prop}
+Let $z \in \CC$. Then there exists a complex number $w \in \CC$ such that $w^2 = z$.	
+\end{prop}
+[To-Finish]
+\subsection{Properties of Complex Numbers}
+\subsubsection{Polar Representation}
+The \emph{modulus} of a complex number $z=a+bi$ is its norm, i.e., $\norm{a+bi} = \norm{(a,b)} = \sqrt{a^2 + b^2}$, conventionally written as $\abs{z}$. Let $\theta$ be the angle that $z$ makes with the positive real axis, where $0 \leq \theta < 2\pi$, and $r = \abs{z}$ Then $z$ may be rewritten as
+\[ 
+	a+bi = r \cos \theta + (r \sin \theta) i = r(\cos \theta + i \sin \theta).
+\]
+This way of writing $z$ is called the \emph{polar coordinate representation}. The angle $\theta$ is called the \emph{argument} of $z$ and is denoted $\theta = \arg z$.
+[To-Do: Insert Figures]
+The inverval $[0, 2 \pi[$ is an arbitrary choice, any other interval of length $2\pi$ could be specified and the resulting representation would be unique, granted that the relevant complex number is not equal to zero. [True? What if it's a closed interval?] Alternatively, $\arg z$ may be defined as the set of values $\{ \theta + 2n \pi : n \in \ZZ \}$. Specifying a particular suitable interval for the angle is known as choosing a \emph{branch of the argument}.
+\subsubsection{Multiplication of Complex Numbers}
+Let $z_1 = r_1(\cos \theta_1 + i \sin \theta_1)$ and $z_2 = r_2(\cos \theta_2 + i \sin \theta_2)$. Then
+\begin{align*}
+	z_1 z_2 &= r_1 r_2 [(\cos \theta_1 \cdot \cos \theta_2 - \sin \theta_1 \cdot \sin \theta_2)] + i[\cos \theta_1 \cdot \sin \theta_2 + \cos \theta_2 \cdot \sin \theta_2)] \\
+		&= r_1 r_2 [\cos(\theta_1+\theta_2)+i \sin(\theta_1 + \theta_2)].
+\end{align*}
+Which proves the following proposition.
+\begin{prop}
+For any complex numbers $z_1, z_2$,
+\[
+	\abs{z_1 z_2} = \abs{z_1} \abs{z_2} \text{ and } \arg(z_1 z_2) = \arg z_1 + \arg z_2 \pmod {2\pi}
+\]
+\end{prop}
+
+\end{document}
