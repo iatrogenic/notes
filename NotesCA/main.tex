@@ -25,6 +25,7 @@
 \newtheorem{prop}{Proposition}[theorem]
 
 \theoremstyle{definition}
+\newtheorem{example}{Example}
 \newtheorem{problem}{Problem}
 %\newtheorem*{solution}{Solution}
 \newtheorem{definition}{Definition}[section]
@@ -102,7 +103,7 @@ The \emph{modulus} of a complex number $z=a+bi$ is its norm, i.e., $\norm{a+bi} 
 \]
 This way of writing $z$ is called the \emph{polar coordinate representation}. The angle $\theta$ is called the \emph{argument} of $z$ and is denoted $\theta = \arg z$.
 [To-Do: Insert Figures]
-The inverval $[0, 2 \pi[$ is an arbitrary choice, any other interval of length $2\pi$ could be specified and the resulting representation would be unique, granted that the relevant complex number is not equal to zero. [True? What if it's a closed interval?] Alternatively, $\arg z$ may be defined as the set of values $\{ \theta + 2n \pi : n \in \ZZ \}$. Specifying a particular suitable interval for the angle is known as choosing a \emph{branch of the argument}.
+The inverval $[0, 2 \pi[$ is an arbitrary choice, any other interval $[a,b[$ of length $2\pi$ could be specified and the resulting representation would be unique, granted that the relevant complex number is not equal to zero. Alternatively, $\arg z$ may be defined as the set of values $\{ \theta + 2n \pi : n \in \ZZ \}$. Specifying a particular suitable interval for the angle is known as choosing a \emph{branch of the argument}.
 \subsubsection{Multiplication of Complex Numbers}
 Let $z_1 = r_1(\cos \theta_1 + i \sin \theta_1)$ and $z_2 = r_2(\cos \theta_2 + i \sin \theta_2)$. Then
 \begin{align*}
@@ -116,5 +117,28 @@ For any complex numbers $z_1, z_2$,
 	\abs{z_1 z_2} = \abs{z_1} \abs{z_2} \text{ and } \arg(z_1 z_2) = \arg z_1 + \arg z_2 \pmod {2\pi}
 \]
 \end{prop}
-
+\begin{example}
+	Let $z_1 = -1$ and $z_2 = -i$, then $\arg z_1 = \pi$ and $\arg z_2 = 3 \pi /2$. Since $z_1 z_2 = i$, then $\arg z_1 z_2 = \pi/2$. Using the previous proposition, we'd get $\arg z_1 + \arg z_2 = \pi + 3 \pi/2 = 5 \pi /2$, which isn't in the interval $[0,2 \pi[$. Subtracting $2 \pi$ from this result yields the correct value for $\arg z_1 z_2$.	
+\end{example}
+\subsubsection{De Moivre's Formula}
+\begin{prop}
+	If $z =  r(\cos \theta + i \sin \theta)$ and $n$ is a positive integer, then
+	\[
+		z^n = r^n(\cos n \theta + i \sin n\theta).
+	\]
+\end{prop}
+\begin{proof}
+	Use induction.	
+\end{proof}
+As an application, consider the equation $z^n = w$, with $w \in \CC$. Suppose that $w = r(\cos \theta + i \sin \theta)$ and $z = \rho ( \cos \psi + i \sin \psi )$. By De Moivre's formula, $z^n = \rho^n(\cos n \psi + i \sin n \psi)$, which implies that $\rho^n = r = \abs{w}$ and $n \psi = \theta + 2k \pi$, where $k$ is some integer. Thus
+\[
+	z = \sqrt[n]{r} \left [ \cos \left (\frac{\theta}{n} + \frac{2k\pi}{n} \right ) + i \sin \left (  \frac{\theta}{n} + \frac{2k\pi}{n} \right ) \right ].
+\]
+Each value of $k = 0, 1, \dots, n-1$, gives different values of $z$. Any other value for $k$ repeats one of the values of $z$ corresponding to $k = 0, 1, \ldots, n-1$. Thus there are exactly $n$ $n$-th roots of a nonzero complex number.
+\begin{corollary}
+	Let $w \in \CC \setminus \{ 0 \}$, with polar representation $w = r ( \cos \theta + i \sin \theta)$. The $n$th roots of $w$ are given by the $n$ complex numbers
+	\[ 
+		z_k = \sqrt[n]{r} \left [ \cos \left (\frac{\theta}{n} + \frac{2k\pi}{n} \right ) + i \sin \left (  \frac{\theta}{n} + \frac{2k\pi}{n} \right ) \right ], \quad k = 0, 1, \ldots n-1
+\end{corollary}
+\subsubsection{Complex Conjugation}
 \end{document}
