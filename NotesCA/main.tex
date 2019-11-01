@@ -34,6 +34,7 @@
 
 \newenvironment{solution}{\paragraph{Solution:}}{\hfill$\blacksquare \\$}
 
+\DeclareMathOperator{\Ima}{Im}
 
 \title{Notes on Complex Analysis}
 \author{}
@@ -138,7 +139,100 @@ Each value of $k = 0, 1, \dots, n-1$, gives different values of $z$. Any other v
 \begin{corollary}
 	Let $w \in \CC \setminus \{ 0 \}$, with polar representation $w = r ( \cos \theta + i \sin \theta)$. The $n$th roots of $w$ are given by the $n$ complex numbers
 	\[ 
-		z_k = \sqrt[n]{r} \left [ \cos \left (\frac{\theta}{n} + \frac{2k\pi}{n} \right ) + i \sin \left (  \frac{\theta}{n} + \frac{2k\pi}{n} \right ) \right ], \quad k = 0, 1, \ldots n-1
+		z_k = \sqrt[n]{r} \left [ \cos \left (\frac{\theta}{n} + \frac{2k\pi}{n} \right ) + i \sin \left (  \frac{\theta}{n} + \frac{2k\pi}{n} \right ) \right ], \quad k = 0, 1, \ldots n-1.
+	\]
 \end{corollary}
 \subsubsection{Complex Conjugation}
+The transformation $a+bi \mapsto a-bi$ is called \emph{complex conjugation}, and $a-bi$ is the \emph{conjugate} of $a+bi$. The conjugate of $z \in \CC$ is denoted by $\overline z$.
+\begin{prop}
+Let $z,w \in \CC$, then
+\begin{enumerate}
+	\item
+		$\overline{z + w} = \overline z + \overline w$,
+	\item
+		$\overline{zw} = \overline z \overline w$,
+	\item
+		If $w \neq 0$, then $\overline{z/w} = \overline z / \overline w$, 
+	\item
+		$z \overline z = \abs{z}^2$,
+	\item
+		$z = \overline z \Leftrightarrow z \in \RR$,
+	\item
+		$\Re z = (z + \overline z)/2$ and $\Im z = (z - \overline z)/2i$,
+	\item
+		$\overline{\overline z} = z$.
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Let $z, w, z_1, \ldots, z_n, w_1, \ldots, w_n \in \CC$, then
+\begin{enumerate}
+	\item
+		$\abs{zw} = \abs z \abs w$,
+	\item
+		$-\abs z \leq \Re z \leq \abs z$ and $-\abs z \leq \Im z \leq \abs z$,
+	\item
+		$\abs{ \overline z } = \abs z$,
+	\item
+		$\abs{z+w} \leq \abs z + \abs w$,
+	\item
+		$\abs{z-w} \geq \abs{ \abs z - \abs w}$,
+	\item
+		$\abs{z_1w_1 + \ldots z_n w_n} \leq \sqrt{\abs{z_1}^2 + \ldots \abs{z_n}^2} \sqrt{\abs{w_1}^2 + \ldots + \abs{w_n}^2} $.
+\end{enumerate}
+\end{prop}
+\subsection{Elementary Functions}
+\subsubsection{The Exponential Function}
+\begin{definition}
+	Let $z = x+iy \in \CC$, we define
+	\[
+		\exp(z) = e^{z} = e^x(\cos y + i \sin y). 
+	\]$$
+\end{definition}
+A function $f : \CC \to \CC$ is said to be \emph{periodic} if there exists $w \in \CC$ such that $f(z+w) = f(z)$ for all $z \in \CC$. The following proposition establishes some of the properties of the exponential function.
+\begin{prop} Let $z,w \in \CC$,
+	\begin{enumerate}
+		\item
+		$e^{z+w} = e^z e^w$,
+	\item
+		$e^z \neq 0$,
+	\item
+		If $x \in \RR$, then $e^x > 1$ when $x > 0$ and $0 < e^x < 1 $ when $x < 0$,
+	\item
+		$\abs{e^{x+yi}} = e^x$,
+	\item
+		$e^z$ is periodic; each period for $e^z$ has the form $2k\pi i$ for some integer $k$,
+	\item
+		$e^z = 1 \Leftrightarrow z = 2k \pi i$ for some integer $k$.
+	\end{enumerate}
+\end{prop}
+\subsubsection{Trigonometric Functions}
+\begin{definition} Let $z$ be a complex number.
+	\[
+		\sin z = \frac{e^{iz} - e^{-iz}}{2i} \text{ and } \cos z = \frac{e^{iz}+ e^{-iz}}{2}.	
+	\]
+\end{definition}
+\begin{prop} Let $z, w \in \CC$
+\begin{enumerate}
+	\item
+		$\sin^2 z + \cos^2 z = 1$,
+	\item
+		$\sin(z + w) = \sin z \cos w + \cos z  \sin w$,
+	\item
+		$\cos(z+w) = \cos z \cos w - \sin z \sin w$.
+\end{enumerate}	
+\end{prop}
+\subsubsection{Logarithm Function}
+Since the complex exponential function is not bijective, we cannot naively define its inverse, the logarithm. 
+\begin{prop}
+	Consider the set $A_{y_0} = \{ x + iy : x \in \RR \text{ and } y_0 \leq y < y_0 + 2 \pi \}$.
+	Then the exponential function with its domain restricted to this set, $e^z : A_{y_0} \to \CC \setminus \{ 0 \}$, is injective.  
+\end{prop}
+\begin{definition}
+	The function $\log : \CC \setminus \{ 0 \} \to \CC$, with range $y_0 \leq \Ima \log z < y_o + 2 \pi$, is defined by
+	\[
+		\log z = \log \abs x + i \arg z,
+	\]
+	where $\arg z \in [y_0 , y_0 + 2 \pi[$, and $\log \abs z$ is the usual logarithm where $\abs z$ is a real number.	
+\end{definition}
+The logarithm function is only well-defined when we fix a branch, that is an interval of length $2\pi$, in which $\arg z$ takes its values. (????)
 \end{document}
