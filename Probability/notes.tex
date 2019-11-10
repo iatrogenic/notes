@@ -1,39 +1,21 @@
 \documentclass[12pt]{article}
 
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{enumitem}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{fullpage}
-
-\newcommand{\PP}{\mathbb{P}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\QQ}{\mathbb{Q}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\pset}{\mathcal{P}}
-
-\newtheorem{theorem}{Theorem}[section]             \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
-
-\theoremstyle{definition}
-\newtheorem{problem}{Problem}
-%\newtheorem*{solution}{Solution}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{remark}{Remark}
-\newtheorem{notation}{Notation}
-
-\newenvironment{solution}{\paragraph{Solution:}}{\hfill$\blacksquare \\$}
-
-
-\title{Notes on Probability}
-\author{}
+\include{preamble}
 \begin{document}
 
 \maketitle
 \tableofcontents
 \newpage
-\section{Basic Notions}
+\textbf{Some conventions:} 
+\begin{itemize}
+    \item $\NN = \{0,1,2, \ldots \}$,
+    \item $A_+$ with $A = \RR, \QQ, \NN, \ZZ$, refers to the respective subset of positive elements,
+    \item $A_-$ is the same as above but for negative elements. 
+\end{itemize}
+\section{Combinatorics}
+\subfile{sections/combinatorics}
+\section{The Basics of the Theory of Probability}
+\subfile{sections/basictheory}
+\section{Distributions}
+\subfile{sections/distributions}
 \end{document}

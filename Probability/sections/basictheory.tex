@@ -1,0 +1,84 @@
+\subsection{Axiomatization}
+
+\begin{definition}
+   Consider a non-empty set $\Omega$ together with a function $\PP : \mathcal{E} \subset \pset(\Omega) \to [0,1]$. The triple $(\Omega, \mathcal{E}, \PP)$ is said to be a \emph{probability space} if the following propositions are true:
+   \begin{enumerate}
+        \item $\mathcal{E}$ is closed under complementation and under countable unions,
+        \item $\Omega \in \mathcal{E}$;
+        \item $\forall E \in \mathcal{E}, \PP(E) \geq 0$;
+        \item Let $(E_n \in \mathcal{E}: n \in \NN)$ be a pairwise disjoint, then 
+        \begin{equation*}
+           \PP(\bigcup_{i=1}^\infty E_i) = \sum_{i=1}^\infty \PP(E_i);
+       \end{equation*} 
+       \item $\PP(\Omega) = 1$.
+   \end{enumerate}
+   The set $\Omega$ is conventionally called the \emph{sample space}, a set $E \in \mathcal{E}$ is called an \emph{event}, the function $\PP$ is called a \emph{measure of probability} on $\mathcal{E}$.
+\end{definition}
+
+\begin{remark}
+    There are other equivalent axiomatizations, and later we will cover the same ground through the measure-theoretic perspective.
+    \textbf{For now, assume that whenever we speak of a probability space, the set of events $\mathcal{E} = \pset(\Omega)$, so that an event is simply a subset of $\Omega$}.
+\end{remark}
+
+We now state some elementary consequences of these axioms.
+\begin{theorem}
+Let $(\Omega, \mathcal{E}, \PP)$ be a probability space and $A,B \in \mathcal{E}$, then
+\begin{enumerate}
+    \item $\PP(\emptyset) = 0$,
+    \item If $E_1, \ldots, E_n$ are pairwise disjoint events, then 
+    \begin{equation*}
+        \PP(\bigcup_{i=1}^n E_i) = \sum_{i=1}^n E_i,
+    \end{equation*}
+    \item $\PP(\Omega \setminus A) = 1 - \PP(A)$,
+    \item If $A \subset B$, then $\PP(A) \leq \PP(B)$,
+    \item $0 \leq \PP(A) \leq 1$,
+    \item $\PP(A \setminus B) = \PP(A) - \PP(A \cap B)$,
+    \item $\PP(A \cup B) = \PP(A) + \PP(B) - \PP(A \cap B)$,
+    \item $\PP(A \cap B) \geq 1 - \PP(\Omega \setminus A ) - \PP(\Omega \setminus B)$.
+\end{enumerate} 
+\end{theorem}
+We may sometimes write $\Omega \setminus A$ as $A^\complement$ for the sake of brevity. 
+
+\subsection{Independence and Conditional Probability}
+
+\begin{definition}
+    Let $(\Omega, \mathcal{E}, \PP)$ be a probability space, and let $A,B \in \mathcal{E}$, with $\PP(B) > 0$. The \emph{conditional probability of $A$ given $B$} is
+    \begin{equation*}
+        \PP(A | B) \coloneqq \frac{\PP(A \cap B)}{\PP(B)}.
+    \end{equation*}
+\end{definition}
+
+\begin{definition}
+    Events $A$ and $B$ are said to be independent if $\PP(A \cap B) = \PP(A) \PP(B)$.
+\end{definition}
+
+\subsection{Random Variables}
+\begin{definition}
+    Let $(\Omega, \mathcal{E}, \PP)$ be a probability space. 
+    \begin{itemize}
+        \item By a \emph{random variable} $X$, we mean a function $X : \Omega \to \RR$.
+        \item If $X(\Omega)$ is a countable set, then $X$ is said to be a \emph{discrete} random variable.
+        \item If $X$ is a discrete random variable and $(x_i \in \RR : i \in I)$ is an indexed list of the values it takes, the function $x_i \mapsto \PP(X = x_i) = p_i$ is called the \emph{probability mass function} of $X$. Furthermore it satisfies
+        \begin{equation*}
+            \sum_{i \in I} p_i = 1 \text{ and } \forall i \in I : p_i \geq 0.
+        \end{equation*}
+        \item The \emph{cumulative distribution function} of $X$ is the function $F_X : \RR \to \RR$ given by $x \mapsto \PP(X \leq x)$.
+    \end{itemize}
+\end{definition}
+The expression $\PP(X = x)$ is merely an abbreviation of $\PP(\{ y \in \Omega : X(y) = x \})$. The set $\{ y \in \Omega : X(y) = x \} = X^{-1}(\{x\})$ is simply the pre-image of $\{x\}$, which is clearly a subset of $\Omega$. \footnote{But is it an element of $\mathcal{E}$?}  
+Similarly $X \leq x$ may represent $\{y \in \Omega : X(y) \leq x \}$, we will henceforth make use of this convention whenever unambiguous. 
+
+\begin{theorem}[Properties of cumulative distribution functions]
+Let $F_X$ the cumulative distribution function of $X$, then
+\begin{enumerate}
+    \item $ 0 \leq F_X(x) \leq 1$.
+    \item $\lim_{x \to + \infty} F_X(x) = 1$.
+    \item $\lim_{x \to - \infty} F_X(x) = 0$.
+    \item $a < b \Rightarrow F_X(a) \leq F_X(n)$.
+\end{enumerate}    
+\end{theorem}
+
+\subsection{Expectation and Variance}
+\begin{definition}
+    Let $X$ be a discrete random variable 
+\end{definition}

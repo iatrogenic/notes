@@ -1,0 +1,39 @@
+\subsection{Axiomatization}
+
+
+\begin{definition}
+   Consider a non-empty set $\Omega$ together with a function $\PP : \mathcal{E} \subset \pset(\Omega) \to [0,1]$. The triple $(\Omega, \mathcal{E}, \PP)$ is said to be a \emph{probability space} if the following propositions are true:
+   \begin{enumerate}
+        \item 
+        \item $\Omega \in \mathcal{E}$;
+        \item $\forall E \in \mathcal{E}, \PP(E) \geq 0$;
+        \item Let $(E_n \in \mathcal{E}: n \in \NN)$ be a pairwise disjoint, then 
+        \begin{equation*}
+           \PP(\bigcup_{i=1}^\infty E_i) = \sum_{i=1}^\infty \PP(E_i);
+       \end{equation*} 
+       \item $\PP(\Omega) = 1$.
+   \end{enumerate}
+   The set $\Omega$ is conventially called the \emph{sample space} and a set $E \in \mathcal{E}$ is called an \emph{event}. 
+\end{definition}
+
+\begin{theorem}
+Let $(\Omega, \mathcal{E}, \PP)$ be a probability space, then
+\begin{enumerate}
+    \item $\PP(\emptyset) = 0$,
+    \item If $E_1, \ldots, E_n$ are pairwise disjoint events, then 
+    \begin{equation*}
+        \PP(\bigcup_{i=1}^n E_i) = \sum_{i=1}^n E_i,
+    \end{equation*}
+    \item If $A \in \mathcal{E}$, then $\PP(\Omega \setminus A) = 1 - \PP(A)$,
+    \item Let $A, B \in \mathcal{E}$ such that $A \subset B$, then $\PP(A) \leq \PP(B)$,
+    \item If $A \in \mathcal{E}$, then $0 \leq \PP(A) \leq 1$,
+    \item 
+\end{enumerate} 
+\end{theorem}
+
+\subsection{Independence and Conditional Probability}
+
+
+\subsection{Random Variables}
+
+\subsection{Expectation and Variance}

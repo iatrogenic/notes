@@ -1,0 +1,573 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+\subsubsection{Summary}
+Not much is covered here. Vector spaces and subspaces are defined.
+The following theorem is not mentioned (so far) in the book but it is quite useful for checking whether or not a certain set is a subspace.
+\begin{theorem}\label{subspace:1}
+	A subset $U$ of $V$ is a subspace of $V$ if and only if $U$ satisfies the following conditions:
+	\begin{enumerate}
+		\item $0 \in U$,
+		\item $\alpha, \beta \in U$ implies $\alpha + \beta \in U$,
+		\item $x \in \RR$ and $\alpha \in U$ implies $x\alpha \in U$.
+	\end{enumerate}
+\end{theorem}
+\subsubsection{Exercises}
+In what follows, A1, A2, A3, A4, S1, S2, S3, S4 refer to the axioms presented in the book.
+\begin{problem}
+	Prove S3 for $\RR^3$ using the explicit display form $\{x_1, x_2, x_3\}$ for ordered triples.
+\end{problem}
+\begin{solution}
+
+With $(x_1, x_2, x_3), (y_1, y_2, y_3) \in \RR^3$ and $x \in \RR$. 
+	\begin{align*} 
+		x((x_1, x_2, x_3) + (y_1, y_2, y_3)) &= x(x_1 + y_1, x_2 + y_2, x_3 + y_3) 8 \\ 
+	 &=  (x(x_1 + y_1), x(x_2 + y_2), x(x_3 + y_3)) \\
+	 &= (xx_1 + xy_1, xx_2 + xy_2, xx_3 + xy_3) \\
+	 &= (xx_1, xx_2, xx_3) + (xy_1, xy_2, xy_3) \\
+	 &= x(x_1, x_2, x_3) + x(y_1, y_2, y_3).
+	\end{align*}
+\end{solution}
+\begin{problem}
+	Show that given $\alpha$, the $\beta$ postualted in A4 is unique.
+\end{problem}
+\begin{solution}
+	Let $\alpha, \beta, \beta^\prime \in V$ a vector space over $\RR$, such that $\alpha + \beta = 0$ and $\alpha + \beta^\prime = 0$. By transitivity
+	\begin{align*}
+		\alpha + \beta &= \alpha + \beta^\prime \\
+		(\beta + \alpha) + \beta &= (\beta + \alpha) + \beta^\prime \\
+		0 + \beta &= 0 + \beta^\prime \\
+		\beta &= \beta^\prime
+	\end{align*}
+\end{solution}
+\begin{problem}
+	Prove similarly that $0\alpha = 0$, $x0 = 0$, and $(-1)\alpha = -\alpha$.
+\end{problem}
+\begin{solution}
+For the first equality, 
+\begin{align*}
+	0\alpha &= (0 + 0)\alpha \\
+	& = 0\alpha + 0\alpha,
+\end{align*}
+ by S2. Subtracting $0\alpha$ from both sides yields the desired identity. Proving $x0 = 0$ is identical, except S3 is used instead of S2. As for the last equation:
+ \begin{align*}
+ 	\alpha + (-1)\alpha &= (1 - 1)\alpha \\
+ 	&= 0\alpha \\
+ 	&= 0.
+ \end{align*}
+ We already determined that $-\alpha$ is unique, so it follows that $(-1)\alpha = -\alpha$.
+\end{solution}
+\begin{problem}
+	Prove that if $x\alpha = 0$, then either $x=0$ or $\alpha=0$.
+\end{problem}
+\begin{solution}
+	Assume $a \neq 0$ and $x \neq 0$. Since $\alpha \in \RR$ has an inverse $\alpha^{-1}$.
+	\begin{align*}
+		x\alpha = 0 &= 0 \\
+		x\alpha \alpha^{-1} &= 0 \alpha^{-1} \\
+		x &= 0.
+	\end{align*}
+	Contradiction.
+\end{solution}
+\begin{problem}
+	Prove S1 for a function space $\RR^4$. Prove S3.
+\end{problem}
+\begin{solution}
+	Let $x,y$ be elements of $\RR$, $f$ and $g$ real functions on $A$, and $a$ an element of $A$. \\
+	Since $f(a)$ is a real number, $(xy)f(a) = x(yf(a))$ is just a consequence of associativity in $\RR$. As for S3, note also that $g(a) \in \RR$, thus
+	\begin{align*}
+		x(f + g)(a) &= x(f(a) + g(a)) \\
+		&= xf(a) + xg(a).
+	\end{align*}
+Because no conditions were imposed on $a$, both equalities are valid for all elements of $A$.
+\end{solution}
+
+\begin{problem}
+	Given that $\alpha$ is any vector in a vector space $V$, show that the set $A = \{x\alpha \mid x \in \RR \}$ of all scalar multiples of $\alpha$ is a subspace of $V$.
+\end{problem}
+\begin{solution}
+	We can see that $0 \in A$  because $0 \alpha = 0$. Now take $\beta$ and $\gamma$ elements of $A$, 
+	\begin{align*}
+		\beta + \gamma &= x \alpha + y \alpha \\ 
+		&= (x + y)\alpha,
+	\end{align*}
+	which is clearly an element of $A$. Finally, taking $y \in \RR$, $y(x\alpha) = (yx) \alpha \in A$.
+	By theorem \ref{subspace:1}, $A$ is a subspace of $V$.
+\end{solution}
+\begin{problem}
+	Given that $\alpha$ and $\beta$ are any two vectors in $V$, show that the set of all vectors $x\alpha + y\beta$, where $x$ and $y$ are any real numbers, is a subspace of $V$.
+\end{problem}
+\begin{solution}
+	Setting $x = y = 0$ shows that the additive identity is in the set. Let $\gamma = x\alpha + y\beta$ and $\delta = x'\alpha + y'\beta$.
+	\begin{align*}
+		\gamma + \delta &= (x\alpha + y\beta) + x'\alpha + y'\beta \\
+						&= (x+x')\alpha + (y + y')\beta.
+	\end{align*}
+	Finally, if $z \in \RR$ then $z(x\alpha + y\beta) = (zx)\alpha + (zy)\beta$.
+\end{solution}
+\begin{problem}
+	Show that the set of triples $\mathbf{x}$ in $\RR^3$ such that $x_1 - x_2 + 2x_3 = 0$ is a subspace $M$. If $N$ is the similar subspace $\{ \mathbf{x} \mid x_1 + x_2 + x_3 = 0 \}$, find a nonzero vector $\textbf{a}$ in $M \cap N$. Show that $M \cap N$ is the set $\{x\mathbf{a} \mid x \in \RR \}$ of all scalar multiples of $\mathbf{a}$.
+\end{problem}
+\begin{solution}
+The intersection $M \cap N$ is the set of all triples $\mathbf{x} = (x_1, x_2, x_3)$ that satisfy the system:
+\[
+\begin{cases}
+	x_1 - x_2 + 2x_3 = 0 \\
+	x_1 + x_2 + x_3 = 0
+\end{cases}
+\]
+The nonzero triple $\mathbf{a} = (3,-1,-2)$ satisfies this system. \\ 
+Let $ A = \{x\mathbf{a} \mid x \in \RR\}$. Clearly, if $x \in \RR$, then $x\mathbf{a} \in M \cap N$, that is, $A \subset M \cap N$.
+Now let $\alpha = (a_1, a_2, a_3)$ be an element of $M \cap N$, then
+\begin{align*}
+a_1 - a_2 + 2a_3 &= a_1 + a_2 + a_3	\\
+-2a_2 + a_3 &= 0 \\
+a_3 &= 2a_2, 
+\end{align*}
+and now substituting $a_3$ by $2a_2$,
+\begin{align*}
+a_1 + a_2 + 2a_2 &= 0 \\
+a_1 &= -3a_2.	
+\end{align*}
+So $\alpha = (a_1, a_2, a_3) = (a_1, - \frac{1}{3}a_1, -\frac{2}{3}a_1) = a_1(1, - \frac{1}{3}, - \frac{2}{3}) = a_13\mathbf{a}$
+
+\end{solution}
+\begin{problem}
+Let $A$ be the open interval $(0,1)$, and let $V$ be $\RR^A$.
+Given a point $x$ in $(0,1)$, let $V_x$ be the set of functions in $V$ that have a derivative at $x$.
+Show that $V_x$ is a subspace of $V$.
+\end{problem}
+\begin{solution}
+The constant function $I(x) = 0$ has a derivative at $x$ and it is the identity of $\RR^A$. Given $f(x),g(x)$	
+functions in $V_x$, we know that $(f+g)'(x) = f'(x) + g'(x) \Rightarrow f+g \in V_x$. Also, given $y \in \RR$, $(yf(x))' = yf'(x) \Rightarrow yf(x) \in V_x$.
+\end{solution}
+\begin{problem}
+ For any subsets $A$ and $B$ of a vectors space $V$ we define the set sum $A+B$ by $A+B = \{\alpha + \beta \mid \alpha \in A \text{ and } \beta \in B\}$.
+ Show that $(A+B)+C = A+(B+C)$.	
+\end{problem}
+\begin{solution}
+\begin{align*}
+(A+B)+C &= \{ (\alpha + \beta) + \gamma \mid \alpha \in A, \beta \in B, \gamma \in C\} \\
+&= \{ \alpha + (\beta + \gamma) \mid \alpha \in A, \beta \in B, \gamma \in C\} \\
+&= A + (B+C).	
+\end{align*}
+\end{solution}
+\begin{problem}
+Let $A \subset V$ and $X \subset \RR$, we similarly define, $XA = \{x\alpha \mid x \in X \text{ and } \alpha \in A\}$. 
+Show that a nonvoid set $A$ is a subspace if and only if $A+A = A$ and $\RR A = A$.	
+\end{problem}
+\begin{solution}
+	Let $A \neq \emptyset$. \\
+($\Rightarrow$) Suppose $A$ is a subspace, clearly $A+A = A$ by closure of addition on vector spaces. Likewise, $\RR A = A$ by closure under scalar multiplication. \\
+($ \Leftarrow $) Suppose $A+A=A$ and $\RR A = A$. Since $A \neq \emptyset$ then $0 \in A$. Let $\alpha, \beta$ be elements of $A$, $\alpha + \beta \in A+A = A$ by hypothesis. Finally, let $x$ be a real number and $\alpha$ and element of $A$, then $x\alpha \in \RR A = A$. By \ref{subspace:1}, A is a subspace of $V$.
+\end{solution}
+\begin{problem}
+Let $V$ be $\RR^2$, and let $M$ be the line through the origin with slope $k$. Let $\mathbf{x}$ be any nonzero vector in $M$. Show that $M$ is the subspace $\RR\mathbf{x} = \{t\mathbf{x} \mid t \in \RR\}$.	
+\end{problem}
+\begin{solution}
+$M$ is the set $\{(x, kx) \in \RR^2\} \subset \RR^2$. Let $\mathbf{x} = (x_1, kx_1) \neq 0$, if $t \in \RR$ then $t\mathbf{x} = (tx_1, tkx_1) \in M$, hence $\RR\mathbf{x} \subset M$.
+Conversely, if $(y, ky) \in M$ and $(y, ky) = y(1, k) = y\frac{1}{x_1}(x_1, kx_1) = yx_1^{-1}\mathbf{x} \in \RR\mathbf{x} \Rightarrow M \subset \RR\mathbf{x}$. Thus $M = \RR\mathbf{x}$.
+\end{solution}
+\begin{problem}
+Show that any other line $L$ with the same slope $k$ is of the form $M + \mathbf{a}$ for some $\mathbf{a}$.
+\end{problem}
+\begin{solution}
+Let $L$ be a line with slope $k$
+\begin{align*}
+	L &= \{(x, kx+b) \mid x \in \RR \} \\
+	  &= \{(x,kx) + (0,b) \mid x \in \RR \} \\
+	  &= \{(x, kx) \mid x \in \RR\} + (0,b) \\
+	  &= M + (0,b).
+\end{align*}	
+
+\end{solution}
+\begin{problem}
+	Let $M$ be a subspace of a vector space $V$, and let $\alpha$ and $\beta$ be any two vectors in $V$.
+	Given $A = \alpha + M$ and $B = \beta + M$, show that either $A = B$ or $A \cap B = \emptyset$.
+	Show also that $A+B=(\alpha + \beta)  + M$.	
+\end{problem}
+\begin{solution}
+	
+	For the second proposition:
+	\begin{align*}
+		A + B &= (\alpha + M) + (\beta + M) \\
+			  &= \{x + y \mid x \in \alpha + M \text{ and } y \in \beta + M \} \\
+			  &= \{\alpha + \xi + \beta + \zeta \mid \xi, \zeta \in M\} \\
+			  &= (\alpha + \beta) + M.
+	\end{align*}
+\end{solution}
+\begin{problem}
+State more carefully and prove what is meant by ``a subspace of a subspace is a subspace''.	
+\end{problem}
+\begin{solution}
+	Let $V$ be a vector space and $A$ a subspace of it. If $B$ is a subspace of $A$ then $B$ is also a subspace of $V$.
+	\\
+	To prove this, note that $B \subset A \subset V \Rightarrow B \subset V$, by hypothesis, all of the propositions of theorem \ref{subspace:1} are true and thus $B$ is a subspace of $V$.
+\end{solution}
+\begin{problem}
+Prove that the intersection of two subspaces of a vector space is always itself a subspace.	
+\end{problem}
+\begin{solution}
+Let $V$ be a vector space and $A,B$ subspaces of $V$. $0 \in A$ and $0 \in B \Rightarrow 0 \in A \cap B$. If $\alpha,\beta \in A \cap B$ then $\alpha,\beta \in A$ and $\alpha, \beta \in B$, since both are subspaces, $\alpha+\beta \in A$ and $\alpha + \beta \in B \Rightarrow \alpha+\beta \in A \cap B$. If $x \in \RR$ and $\alpha \in A \cap B$.
+\begin{align*}
+\alpha \in A \cap B & \Rightarrow \alpha \in A \wedge \alpha \in B \\
+& \Rightarrow x\alpha \in A \wedge x\alpha \in B \\
+& \Rightarrow x\alpha \in A \cap B.
+\end{align*} 
+\end{solution}
+\begin{problem}
+Prove more generally that the intersection $W = \cap_{i\in I} W_i$ of any family $\{W_i \mid i \in I \}$ of subspaces of $V$ is a subspace of $V$.
+\end{problem}
+\begin{solution}
+	By definiton of subspace, $0$ must be an element of every $W_i$ and is consequently an element of $W$. To check closure of addition consider $\alpha, \beta$ elements of $W$,
+	\begin{align*}
+	\alpha, \beta \in W & \Rightarrow \alpha, \beta \in W_i & \forall i \in I \\
+	& \Rightarrow \alpha + \beta \in W_i & \forall i \in I \\
+	& \Rightarrow \alpha + \beta \in W.
+	\end{align*}
+	Closure under scalar multiplication follows by similar reasoning. 
+\end{solution}
+\begin{problem}
+Let $V$ again be $\RR^{(0,1)}$, and let $W$ be the set of all functions $f$ in $V$ such that $f'(x)$ exists for every $x$ in $(0,1)$. Show that $W$ is the intersection of the collection of subspaces of the form $V_x$ that were considered in problem 9.	
+\end{problem}
+\begin{solution}
+	Let $f$ be an element of $W$, clearly, \[f \in \bigcap_{x \in (0,1)} V_x \], which implies $W \subset \bigcap V_x$. Now suppose $f \in \bigcap_{x\in(0,1)} V_x$, then
+	\begin{align*}
+		f \in V_x & \Rightarrow \exists f'(x)  & \forall x \in (0,1) \\
+		& \Rightarrow f \in W.
+	\end{align*}
+	Hence we obtain the desired equality.
+\end{solution}
+\begin{problem}
+	Let $V$ be a function space $R^A$, and for a point $a$ in $A$ let $W_a$ be the set of functions such that $f(a) = 0$. $W_a$ is clearly a subspace. For a subset $B \subset A$ let $W_B$ be the set of functions $f$ in $V$ such that $f = 0$ in $B$. Show that $W_B$ is the intersection $\bigcap_{a \in B} W_a$.
+\end{problem}
+\begin{solution}
+	Suppose $f \in W_B$, then
+	\begin{align*}
+		f(b) = 0 &\Rightarrow f \in W_b & \forall b \in B \\
+		& \Rightarrow f \in \bigcap_{a \in B} W_a. & \\
+		& \Rightarrow W_B \subset \bigcap_{a \in B} W_a. &
+	\end{align*}
+Now if $f \in \bigcap_{a \in B} W_a$, assume $f \notin W_B$, then there exists $b$ in $B$ such that $f(b) \neq 0$, but this would entail $f \notin W_b \Rightarrow f \notin \bigcap_{a \in B} W_a$, contradicting our hypothesis.
+\end{solution}
+\begin{problem}
+	Supposing again that $X$ and $Y$ are subspaces of $V$, show that if $X+Y = V$ and $X \cap Y = \{0\}$, then for every vector $\zeta$ in $V$ there is a unique pair of vectors $\xi \in X$ and $\eta \in Y$ such that $\zeta = \xi + \eta$.
+\end{problem}
+\begin{solution}
+	Let $\xi_1$ and  $\eta_1$ be elements of $X$ and $Y$ respectively, such that, $\xi + \eta = \zeta = \xi_1 + \eta_1$, so we have that 	\[
+	\eta - \eta_1 = \xi_1 - \xi.
+	\]
+	Closure of addition in a vector space implies that $\eta_1 - \eta$ is an element of both $Y$ and $X$, likewise for $\xi$ and $\xi_1$, it follows that 
+	\[
+	\xi - \xi_1 = 0  = \eta - \eta_1.
+	\]
+	Thus $\xi = \xi_1$ and $\eta = \eta_1$.
+\end{solution}
+\begin{problem}
+	Show that if $X$ and $Y$ are subspaces of a vector space $V$, then the union $X \cup Y$ can only be a subspace if either $X \subset Y$ or $Y \subset X$.
+\end{problem}
+\begin{solution}
+	Let $X \cup Y$ be a subspace of $V$. For purposes of contradiction, assume $X$ is not a subset of $Y$ and vice versa. This implies that there exists $x \in X$ such that $x \notin Y$ and $y \in Y$ such that $y \notin X$. Since $X \cup Y$ is a subspace, $x+y$ is an element of it, call it $z$. Then $x = z -y$ and $y = z - x$. Since $z$ is an element of $X \cup Y$ it is an element of $X$ or an element of $Y$. If $z \in X$ then $y \in X$, by closure of addition in a subspace, this is a contradiction. If $z \in Y$ then we obtain $x \in Y$, which is also a contradiction.
+\end{solution}
+\subsubsection{Exercises}
+\begin{problem} Given  $ \alpha = (1,1,1) $,  $ \beta = (0,1,-1) $  ,  $ \gamma = (2,0,1) $, compute the linear combination  $ \alpha + \beta + \gamma$, $3\alpha - 2\beta + \gamma$, $x\alpha + y\beta + z\gamma $. Find  $ x,y $, and  $ z $  such that  $ x\alpha + y\beta + z\gamma = (0,0,1) = \delta^3$. Do the same for  $ \delta^1 $  and  $ \delta^2 $.      
+\end{problem}
+\begin{solution}
+	$\alpha + \beta + \gamma = (1,1,1) + (0, 1, -1) + (2,0,1) = (3, 2, 1)$. \\
+	$3\alpha - 2\beta + \gamma = (3,3,3) - (0,2,-2) + (2,0,1) = (5, 1, 6)$. \\
+	$x\alpha + y\beta + z\gamma = (x,x,x) + (0, y, -y) + (2z, 0, z) = (x+2z, x+y, x-y+z)$. \par
+	$x\alpha + y \beta + z \gamma = \delta^3$ yields the following system:
+	\[
+	\begin{cases}
+		x+2z = 0 \\
+		x+y = 0 \\
+		x-y+z = 1 , 
+	\end{cases}
+	\begin{cases} 
+		x+2z = 0 \\
+		x + y = 0 \\
+		2x + z = 1,
+	\end{cases}
+	\begin{cases}
+		x = -2z \\
+		x + y = 0 \\
+		z = -1/3,
+	\end{cases}
+	\begin{cases}
+		x = 2/3 \\
+		y = -2/3 \\
+		z = - 1/3.
+	\end{cases}
+
+\]
+The rest of the problem is solved the same way.
+\end{solution}
+\begin{problem}
+	Given  $\alpha = (1,1,1)$,  $\beta = (0,1,-1)$,  $\gamma = (1,0,2)$. show that each of  $\alpha, \beta, \gamma$ is a linear combination of the other two. Show that it is impossible to find coefficients  $x, y$, and  $z$  such that  $x\alpha + y\beta +  z\gamma = \delta^1$.          	
+\end{problem}
+\begin{solution}
+	Again, just a matter of solving the corresponding systems of equations.
+\end{solution}
+\begin{problem}
+	\begin{enumerate}[label = (\alph*)]
+		\item Find the linear combination of the set  $A = (t,t^2-1,t^2+1)$ with coefficient triple  $(2,-1,1)$    . Do the same for  $(0,1,1)$.  	
+		\item Find the coefficient triple for which the linear combination of the triple  $A$  is  $(t+1)^2$  . Do the same for  $1$  .
+		\item Show in fact that any polynomial of degree  $\leq 2$ is a linear combination of $A$.  
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label = (\alph*)]
+	\item
+		$2t +2$ and $2t^2$.
+	\item
+		$(t+1)^2 = (b+c)t^2+ at + c-b \Leftrightarrow t^2+2t+1 = (b+c)t^2 + at + c-b$, which implies, $b+c=1$, $a=2$ and $c-b=1$. It is easy to see that $b=0$ and $c=1$.
+	\item
+		Generic quadratic polynomial is of the form $ax^2 + bx + c$. Setting $ax^2+bx+c = \lambda_1 t + \lambda_2 (t^2-1) + \lambda_3(t^2+1)$.
+		\[	
+		\begin{cases}
+			a = \lambda_2 + \lambda_3 \\
+			b = \lambda_1 \\
+			c = \lambda_3 - \lambda_2.
+		\end{cases}
+		\Leftrightarrow
+		\begin{cases}
+			(a-c)/2 = \lambda_2 \\
+			b = \lambda_1 \\
+			(c + a)/2 = \lambda_3.
+		\end{cases}
+		\]
+		\end{enumerate}
+\end{solution}
+\begin{problem}
+	Find the linear combinations  $f$  of $ \{e^t , e^{-t} \} \subset \RR^\RR$ such that  $f(0) = 1$ and  $f'(0)=2$.
+\end{problem}
+\begin{solution}
+	Let $f(t) = ae^t+be^{-t}$, then $f'(t) = ae^t-be^{-t}$. By hypothesis, $ae^0+be^0 = 1 \Leftrightarrow a+b=1$ and $ae^0-be^0 = 2 \Leftrightarrow a-b=2$, therefore $a = 3/2$ and $b=-1/2$.
+\end{solution}
+\begin{problem}
+	Find a linear combination  $f$  of  $\sin x$,  $\cos x$, and  $e^x$  such that  $f(0)=0$,  $f'(0) = 1$, and  $  f''(0) = 1$.	
+\end{problem}
+\begin{solution}
+	Same as above.
+\end{solution}
+\begin{problem}
+Suppose that  $a \sin x + b \cos x + c e^x$ is the zero function. Prove that  $a = b = c = 0$.    	
+\end{problem}
+\begin{problem}
+	Prove that  $(1,1)$ and  $(1,2)$  span  $\RR^2$.
+\end{problem}
+\begin{solution}
+	Let $(x,y)$ be a point in $\RR^2$. The equation $(x,y) = \alpha (1,1) + \beta (1,2)$ is equivalent to the system:
+	\[
+	\begin{cases}
+		x = \alpha + \beta \\
+		y = \alpha + 2\beta
+	\end{cases}
+	\begin{cases}
+		x - y = -\beta \\
+		y - 2x = -\alpha
+	\end{cases}
+	\begin{cases}
+		\beta = y-x \\
+		\alpha = 2x - y.
+	\end{cases}
+\]
+	Which proves $R^2 \subset L\{(1,1), (1,2)\} $. The reverse inclusion is obvious.
+\end{solution}
+\begin{problem}
+	Show that the subspace $M = \{\mathbf{x} \mid x_1 + x_2 = 0 \} \subset \RR^2$ is spanned by one vector. 
+\end{problem}
+\begin{solution}
+Let $(x_1, x_2)$ be an element of $M$, we have that $(x_1, x_2) = (x_1, -x_1) = x_1(1, -1)$ which is an element of $L\{(1,-1)\}$. Hence $(1,-1)$ spans $M$.
+\end{solution}
+\begin{problem}
+	Let $M$ be the subspace $\{\mathbf{x} \mid x_1 - x_2 + 2x_3 = 0 \}$ in $\RR^3$. Find two vectors $\mathbf{a}$ and $\mathbf{b}$ in $M$ neither of which is a scalar multiple of the other. Then show that $M$ is the linear span of $\mathbf{a}$ and $\mathbf{b}$.
+\end{problem}
+\begin{solution}
+	The vectors $\mathbf{a} = (-1,1,1)$ and $\mathbf{b} = (1,-1,0)$ are both in $M$ and clearly neither is a scalar multiple of the other. \par
+	Since the span is the ``smallest subspace," it must be subset of $M$, which contains both $\mathbf{a}$ and $\mathbf{b}$. \par For the reverse inclusion, let $\alpha = (x_1, x_2, x_3)$ be an element of $M$.  
+	\[
+	\begin{cases}
+		x_1 =x_2 -2x_3 \\
+		x_2 = x_1 + 2x_3 \\
+		x_3 = 1/2 ((-x_2+2x_3) + (x_1 + 2x_3)) 
+	\end{cases}
+	\]
+	
+\end{solution}
+\begin{problem}
+	Find the intersection of the linear span of $(1,1,1)$ and $(0,1,-1)$ in $\RR^3$ with the coordinate subspace $x_2 = 0$. Exhibit this intersection as a linear span.
+\end{problem}
+\begin{solution}
+	Define $M$ to be $L\{(1,1,1),(0,1,-1) \} \cap \RR^3_{x_2 = 0}$ and let $\alpha$ be an arbitrary element of this set. We have 
+	\[
+		\lambda_1(1,1,1) + \lambda_2(0,1,-1) = (\alpha_1, \alpha_2, \alpha_3) = (x_1, 0, x_3),
+	\]
+	it directly follows that $\alpha_2 = 0$, $\alpha_1 = \lambda_1$ and $\alpha_3 = \lambda_1 - \lambda_2$. In conclusion
+	\[
+		M = \RR^3_{x_2 = 0}.
+	\]
+	Furthermore, $\RR^3_{x_2 = 0} = L\{(1,0,0), (0,0,1)\} = M$.	
+\end{solution}
+\begin{problem}
+Do the above exercise with the coordinate space replaced by
+\[
+	M = \{ \mathbf{x} : x_1 + x_2 = 0 \}.
+\]
+
+\end{problem}
+\begin{problem}
+	By Theorem 1.1 the linear span $L(A)$ of an arbitrary subset $A$ of a vector space $V$ has the following two properties:
+	\begin{enumerate}
+		\item $L(A)$ is a subspace of $V$ which includes $A$;
+		\item If $M$ is any subspace which includes $A$, then $L(A) \subset M$.
+	\end{enumerate}
+	Using only (1) and (2), show that:
+	\begin{enumerate}[label = (\alph*)]
+		\item $A \subset B \Rightarrow L(A) \subset L(B)$;
+		\item $L(L(A)) = L(A)$.
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	To prove (a) note that $A \subset L(B)$ according to (2) then $L(A) \subset L(B)$. 
+	$L(A) \subset L(A)$, then by (2), $L(L(A)) \subset L(A)$, which proves (b).
+\end{solution}
+\begin{problem}
+	Show that
+	\begin{enumerate}[label = (\alph*)]
+		\item if $M$ and $N$ are subspaces of $V$, then so is $M+N$;
+		\item for any subsets $A,B \subset V, L(A \cup B) = L(A) + L(B)$.
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	(a): Let $M, N$ be subspaces of $V$. Clearly $0 \in M + N$, and this set is closed under vector addition and scalar multiplication. Therefore it is a subspace of $V$.
+	\par
+	(b): $L(A \cup B)$ must contain all vectors of the form $a_1\alpha + a_2\beta$ where $\alpha \in A$ and $\beta \in B$ due to being a subspace, this implies $L(A) + L(B) \subset L(A \cup B)$. It is also easy to see that $L(A \cup B) \subset L(A) + L(B)$, which is the set of vectors of the form $a_1 \alpha + a_2 \beta$, in particular, fixing$\beta = 0$ we obtain that $A \subset L(A) + L(B)$ and then fixing $\alpha$ in the same matter shows that $B \subset L(A) + L(B)$, thus $A \cup B \subset L(A) + L(B)$, which according to (2) of the previous exercise implies $L(A \cup B) \subset L(A) + L(B)$.
+\end{solution}
+\begin{problem}
+	Remembering that the intersection of any family of subspaces is a subspace, show that the linear span $L(A)$ of a subset $A$ of a vector space $V$ is the intersection of all the subspaces of $V$ that include $A$. This alternative characterization is sometimes taken as the definition of linear span.
+\end{problem}
+\begin{solution}
+	Let $S_A$ be the set of subspaces that contain $A$ and $I = \bigcap_{X \in S_A} X$.
+	If $x$ is an element of $L(A)$ and $A^*$ is a subspace containing $A$ then $x \in A^*$, which implies $L(A) \subset I$. If $x \in I$ then $x$ is in every subspace of $A$, in particular $x \in L(A)$. Thus $I = L(A)$.
+\end{solution}
+\begin{problem}
+By convention, the sum of an empty set of vectors is taken to be the zero vector. This is necessary if Theorem 1.1 is to be strictly correct. Why? What about the preceding problem?	
+\end{problem}
+\subsubsection{Exercises}
+\begin{problem}
+Show that the most general linear map from $\RR$ to $\RR$ is multiplication by a constant.	
+\end{problem}
+\begin{solution}
+	Let $f: \RR \to \RR$ be a linear map, $\alpha$ be a real number.
+	\[
+		f(\alpha) = f(\alpha \cdot 1) = \alpha f(1).
+	\]
+\end{solution}
+\begin{problem}
+	For a fixed $\alpha$ in $V$ the mapping $x \mapsto x \alpha$ from $\RR$ to $V$ is linear. Why?
+\end{problem}
+\begin{solution}
+	Pick $x$ and $x'$ elements of $\RR$, then $(ax + bx')\alpha = ax\alpha + bx'\alpha$, if we call the map $T$, this may be written as $aT(x) + bT(x')$,i.e., $T$ is linear.
+\end{solution}
+\begin{problem}
+	Why is this true for $\alpha \mapsto x\alpha$ when $x$ is fixed?
+\end{problem}
+\begin{problem}
+	Show that every linear mapping from $\RR$ to $V$ is of the form $x \mapsto x \alpha$ for a fixed vector $\alpha$ in $V$.
+\end{problem}
+\begin{solution}
+	Let $f: \RR \to V$ be a linear map. For $x \in \RR$, $f(x) = f(1 \cdot x) = xf(1)$, and $f(1) \in V$ by hypothesis.
+\end{solution}
+\begin{problem}
+	Show that every linear mapping from $\RR^2$ to $V$ is of the form $(x_1, x_2) \mapsto x_1\alpha_1 + x_2\alpha_2$ for a fixed pair of vectors $\alpha_1$ and $\alpha_2$ in $V$. What is the range of this mapping?
+\end{problem}
+\begin{solution}
+	Let $f: \RR^2 \to V$ be a linear map and $(x,y) \in \RR^2$. $f(x,y) = f(x(1,0) + y(0, 1)) = xf(1,0) + yf(0,1)$.
+\end{solution}
+\begin{problem}
+	Show that the map $f \mapsto \int_a^b f(t) \,dt$ from $\mathcal{C}([a,b])$ to $\RR$ does not preserve products.
+\end{problem}
+\begin{solution}
+	Let $f,g \in \mathcal{C}([a,b])$. It is well known that 
+	\[
+		\int_a^b f(t)g(t) = \int_a^b f(t) \int_a^b g(t),
+	\]
+	is not generally true.
+\end{solution}
+\begin{problem}
+	Let $g$ be any fixed function in $\RR^A$. Prove that the mapping $T:\RR^A \to \RR^A$ defined by $T(f) = gf$ is linear.
+\end{problem}
+\begin{solution}
+	Let $f,h \in \RR^A$ and $\alpha, \beta \in \RR$. $T(\alpha f + \beta h) = g \alpha f + g \beta h = \alpha T(f) +  \beta T(h)$.
+\end{solution}
+\begin{problem}
+	Let $\varphi$ be any mapping from a set $A$ to a set $B$. Show that the composition by $\varphi$ is a linear mapping from $\RR^B$ to $\RR^A$. That is, show that $T:\RR^B \to \RR^A$ defined by $T(f) = f \circ \varphi $ is linear.	
+\end{problem}
+\begin{solution}
+	Let $f,g \in \RR^B, \alpha, \beta \in \RR$. $T(\alpha f + \beta g) = (\alpha f + \beta g) \circ \varphi = \alpha f \circ \varphi + \beta g \circ \varphi = \alpha T(f) + \beta T(g)$
+\end{solution}
+\subsubsection{Exercises}
+\begin{problem}
+	In the situation of Exercise 44, show that $T$ is an isomorphism if $\varphi$ is bijective by showing that
+	\begin{enumerate}
+		\item $\varphi$ injective $\Rightarrow T$ surjective.
+		\item $\varphi$ surjective $\Rightarrow T$ injective.
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	Let $\varphi$ be a mapping from $A$ to $B$ and define $T(f) \coloneqq f \circ \varphi$. Suppose $\varphi$ is injective and let $g$ be an element of $\RR^A$. Let $c$ be $\varphi$'s left-inverse, $T(g \circ c) = (g \circ c) \circ \varphi = g \circ (c \circ \varphi) = g$. \par
+	Now assume $\varphi$ is surjective, which means it has a right-inverse $r$. Now suppose $T(f) = T(g)$, then $f \circ \varphi = g \circ \varphi \Leftrightarrow (f \circ \varphi) \circ r = (g \circ \varphi) \circ r \Leftrightarrow f = g$ 
+\end{solution}
+\begin{problem}
+	Find the linear functional $l$ on $\RR^2$ such that $l(\langle 1, 1 \rangle) = 0$ and $l(\langle 1, 2 \rangle ) = 1$. That is, find $\bm b = \langle b_1, b_2 \rangle$ in $\RR^2$ such that $l$ is the linear combination map 
+	\[
+		\bm x \mapsto b_1x_1 + b_2x_2.
+\]
+\end{problem}
+\begin{solution}
+	We have two identities $b_1 \cdot 1 + b_2 \cdot 1 = 0$ and $b_1 \cdot 1 + b_2 \cdot 2 = 1$ 
+	\[
+	\begin{cases}
+		b_1 + b_2 = 0 \\
+		b_1 + 2b_2 = 1
+	\end{cases}
+	\begin{cases}
+		b_1  = -1 \\
+		b_2 = 1
+	\end{cases}
+\]
+\end{solution}
+\begin{problem}
+	Do the same for $l(\langle 2, 1 \rangle) = -3$ and $l(\langle 1, 2 \rangle) = 4$.
+\end{problem}
+\begin{problem}
+	Find the linear $T: \RR^2 \to \RR^\RR$ such that $T(\langle 1, 2 \rangle) = t^2$ and $T(\langle 1, 2 \rangle) = t^3$. That is, find the functions $f_1(t)$ and $f_2(t)$ such that $T$ is the linear combination map $\bm x \to x_1 f_1 + x_2 f_2$.	
+\end{problem}
+\begin{problem}
+	Let $T$ be a linear map from $\RR^2$ to $\RR^3$ such that $T(\delta^1) = \langle 2, -1, 1 \rangle$ , $T(\delta^2) = \langle 1,0,3 \rangle$. Write down the matrix of $T$ in standard rectangular form. Determine whether or not $\delta^1$ is in the range of $T$.	
+\end{problem}
+\begin{problem}
+Let $T$ be the linear map from $\RR^3$ to $\RR^3$ whose matrix is
+\[
+\begin{bmatrix}
+	1 && 2 && 3 \\	
+	2 && 0 && -1 \\
+	3 && -1 && 1
+\end{bmatrix}.
+\]
+Find $T( \bm x)$ when $\bm x = \langle 1, 1, 0 \rangle$; do the same for $\bm x = \langle 3, -2, 1 \rangle$.
+\end{problem}
+\begin{problem}
+	Let $M$ be the linear span of $\langle 1, -1, 0 \rangle$ and $\langle 0, 1, 1 \rangle$. Find the subspace $T[M]$ by finding two vectors spanning it, where $T$ is as in the above exercise.
+\end{problem}
+\begin{problem}
+	Let $T$ be the map $\langle x, y \rangle \to \langle x+2y, x+z, y \rangle$ from $\RR^2$ to itslf. Show that $T$ is a linear combination mapping, and write down its matrix in standard form.
+\end{problem}
+\begin{problem}
+	
+	Do the same for $T: \langle x, y , z \rangle \to \langle x-z, x+z,y \rangle$ from $\RR^3$ to itself.
+\end{problem}
+\begin{problem}
+	Find a linear transformation $T$ from $\RR^3$ to itself whose range space is the span of $\langle1, -1, 0 \rangle$ and $\langle -1, 0 ,2 \rangle$.	
+\end{problem}
+\end{document}
