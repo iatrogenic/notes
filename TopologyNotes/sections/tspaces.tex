@@ -1,0 +1,62 @@
+\subsection{Topology}
+
+\begin{definition}
+    Let $E$ be a set. The set $\tau \subseteq \pset(E)$ is said to be a \emph{topology on $E$} if it satisfies the following axioms:
+    \begin{enumerate}
+        \item $\emptyset, E \in \tau$,
+        \item $O_1, O_2 \in \tau \Rightarrow (O_1 \cap O_1 \in \tau)$,
+        \item $(O_j \in \tau : j \in J) \Rightarrow (\cup_{j \in J} O_j) \in \tau$.
+    \end{enumerate} 
+    A \emph{topological space} is an ordered pair $(E, \tau)$ where $E$ is a set and $\tau$ a topology on $E$.
+    An element of $X \in \pset(E)$ is said to be an \emph{open set} if $X \in \tau$, and said to be a \emph{closed set} if $E \setminus X \in \tau$.
+\end{definition}
+
+\begin{definition}
+    A topological space $(E, \tau)$ is said to \emph{Hausdorff} if
+    \begin{equation*}
+        \forall a,b \in E \text{ such that } a \neq b, \text{ there exists } O_a, O_b \in \tau \text{ and } O_a \cap O_b \neq \emptyset
+    \end{equation*}
+\end{definition}
+
+\begin{definition}
+    Let $\tau_1, \tau_2$ be two topologies on a set $E$. The topology $\tau_1$ is said to be \emph{finer} than $\tau_2$ if $\tau_2 \subseteq \tau_1$.
+    If in addition $\tau_1 \neq \tau_2$, then $\tau_1$ is said to be \emph{strictly finer} than $\tau_2$. 
+\end{definition}
+
+Two topologies are said to be \emph{comparable} if one is finer than the other.
+
+\subsection{Interior, exterior, boundary and closure}
+
+\begin{definition}
+    Let $(E, \tau)$ be a topological space, $a$ an element of $E$, and $X \in \pset(E)$. Then:
+    \begin{align*}
+        a \text{ is an interior point of } X && \Leftrightarrow && \exists O \in \tau, a \in O \text{ and } 0 \subseteq X, \\
+        a \text{ is an exterior point of } X && \Leftrightarrow && \exists O \in \tau, a \in O \text{ and } 0 \subseteq E \setminus X, \\
+        a \text{ is a boundary point of } X && \Leftrightarrow && \forall O \in \tau, a \in O , O \cap X \neq \emptyset \text{ and } O \cap (E \setminus X) \\
+    \end{align*}
+\end{definition}
+
+\begin{notation}
+Note that the following sets depends on the fixed topology.
+    \begin{itemize}
+        \item $\interior X$ is the set of all interior points of $X$,
+        \item $\exterior X$ is the set of all exterior points of $X$,
+        \item $\partial X$ is the set of all boundary points of $X$,
+        \item The set $\overline X = \interior X \cup \partial X$ is called the \emph{closure} of $X$.
+    \end{itemize}
+\end{notation}
+
+\begin{proposition}
+    Let $(E, \tau)$ be a topological space and $X \in \pset(E)$. Then
+    \begin{enumerate}
+        \item $a \in \overline{X} \Leftrightarrow \forall O \in \tau , a \in O \Rightarrow (O \cap X) \neq \emptyset$,
+        \item $\interior X \subseteq X \subseteq \overline{X}$,
+        \item $X \in \tau \Leftrightarrow X = \int X$,
+        \item $(E \setminus X) \in \tau \Leftrightarrow \overline{X} = X$,
+        \item $\overline{X} = X \cup \partial X$,
+        \item $X \subseteq Y \Rightarrow \interior X \subseteq \interior Y$ and $\overline{X} \subseteq \overline{Y}$,
+        \item $\overline{X \cup Y} = \overline{X} \cup \overline{Y}$ and $\overline{X \cap Y} \subseteq \overline{X} \cap \overline{Y}$,
+        \item $\overline{\overline{X}} = X$.
+    \end{enumerate}
+\end{proposition}
+\subsection{Neighborhoods}
