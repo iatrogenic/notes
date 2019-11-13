@@ -1,0 +1,39 @@
+\subsection{Measures of Location of the Data}
+\begin{definition}
+   The \emph{sample mean} of a numerical sample $(x_1, \ldots, x_n)$ is
+   \begin{equation*}
+        \overline{x} \coloneqq \frac{1}{n} \sum_{i=1}^n  x_i. 
+   \end{equation*}
+\end{definition}
+
+\begin{definition}
+   Consider the numerical sample $(x_1, \ldots, x_n)$. Its \emph{median} $M$ is
+   \begin{equation*}
+     M \coloneqq 
+     \begin{cases}
+       x_{\frac{n+1}{2}:n} & \text{ if $n$ is odd,} \\
+       \frac{1}{2}(x_{\frac{n}{2}:n} + x_{\frac{n+1}{2}:n})  & \text{ if $n$ is even.}
+     \end{cases}   
+   \end{equation*}
+   Where $(x_{1:n}, \ldots, x_{n:n})$ is the initial sample but ascendingly ordered. 
+\end{definition}
+
+\begin{definition}
+   The \emph{sample mode} of a numerical sample $(x_1, \ldots,  x_n)$ is the value, or values, that most frequently occur.
+\end{definition}
+
+\begin{definition}
+  The \emph{rank} of an element of a sample $(x_1 , \ldots, x_n)$ is the position of this element in the ordered sample.
+  \par
+  When we \emph{rank down}, the highest value is ranked as $1$, the second highest as $2$, and so on. When we \emph{rank up}, the lowest value is ranked $1$, the second lowest as $2$, and so on.
+  \par
+  The \emph{depth} of an element of a sample $(x_1, \ldots, x_n)$ is the minimum between its two ranks (up and down).
+\end{definition}
+
+\begin{remark}
+    $\Depth(M) = \frac{n+1}{2}$, where $M$ is the median of a sample.
+\end{remark}
+
+\begin{definition}
+   The \emph{lower fourth} and \emph{upper fourth} of a sample are
+\end{definition}
