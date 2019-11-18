@@ -46,6 +46,21 @@ Note that the following sets depends on the fixed topology.
     \end{itemize}
 \end{notation}
 
+\begin{remark}
+	The elements of $\overline X$ are called \emph{adherent} point of $X$. It follows that
+	\begin{equation*}
+		a \text{ is an adherent point of } X \Leftrightarrow \forall O \in \tau, a \in O \Rightarrow (O \cap X) \neq \emptyset.
+	\end{equation*}
+\end{remark}
+
+\begin{definition}
+	Let $(E,\tau$ be a topological space, let $X$ be a subset of $E$ and $a \in E$. The element $a$ is said to be an \emph{accumulation} point of $X$ if:
+	\begin{equation*}
+	\forall O \in \tau, a \in O \Rightarrow \exists b, a \neq b.	
+	\end{equation*}
+	The set of such points is called the \emph{derivative} of $X$, denoted $X^\prime$. It follows that $X \cup X^\prime = \overline X$.
+\end{definition}
+
 \begin{proposition}
     Let $(E, \tau)$ be a topological space and $X \in \pset(E)$. Then
     \begin{enumerate}
@@ -59,4 +74,40 @@ Note that the following sets depends on the fixed topology.
         \item $\overline{\overline{X}} = X$.
     \end{enumerate}
 \end{proposition}
+
+\begin{definition}
+	Let $(E,\tau)$ be a topological space, and $X, Y \subseteq E$. The set $X$ is said to be \emph{dense} on $Y$ if $Y \subseteq \overline{X}$ .
+\end{definition}
+
+
+\begin{definition}
+	Let $(E, \tau)$ be a topological space; it is said to be \emph{separable} if there exists a subset $X$ of $E$ that is both dense and countable.
+\end{definition}
+
 \subsection{Neighborhoods}
+
+\begin{definition}
+	Let $(E, \tau)$ be a topological space and $a \in E$. A subset X of $E$ is said to be a \emph{neighborhood} of $a$ if there exists $O \in \tau$, such that $a \in O$ and $O \subseteq X$. \par
+	The set $X$ is said to be a neighborhood of $A \subseteq E$, if for every element $a \in A$, X is a neighborhood of $a$. The set of all neighborhoods of a point $a$ is denoted by $\mathcal{V}_a$, and $\mathcal{V}_A$ denotes the set of all neighborhoods of an arbitrary set $A$. 
+\end{definition}
+
+\begin{proposition}
+	\begin{gather*}
+		X \in \tau \Leftrightarrow X \text{ is a neighborhood of } x \in X, \\
+		V_1, V_2 \in \mathcal{V}_a \Rightarrow (V_1 \cap V_2) \in \mathcal{V}_a, \\
+		V \in \mathcal{V}_a \text{ and } V \subseteq W \Rightarrow W \in \mathcal{V}_a, \\
+		V \in \mathcal{V}_a \Rightarrow \interior(V) \in \mathcal{V}_a.
+	\end{gather*}
+\end{proposition}
+
+\begin{definition}
+	Let $\mathcal{W}$ be a class of neighborhoods of a given point $a$ (or a given set $X$) on the topological space $(E, \tau)$. We call $\mathcal{W}$ a \emph{fundamental neighborhood system} of $a$ (or $X$) if every neighborhood $V$ of $a$ (or $X$), is an element of $\mathcal{W}$, i.e., $V \in \mathcal{W}$.  
+\end{definition}
+
+\begin{definition}
+	A topological space $(E, \tau)$ is said to satisfy the \emph{first axiom of numerability} if every $a \in E$, has a countable fundamental neighborhood system. 
+\end{definition}
+
+\begin{definition}
+	Let $(J, \leq)$ be a well-ordered set. A class of neighborhoods $(V_j)_{j \in J}$ of $a$, indexed on J, is said to be a \emph{nested} fundamental system of neighborhoods of $a$, if $V_k \subseteq V_j$ whenever $j \leq k$. 
+\end{definition}
