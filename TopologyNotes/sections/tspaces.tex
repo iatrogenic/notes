@@ -101,13 +101,73 @@ Note that the following sets depends on the fixed topology.
 \end{proposition}
 
 \begin{definition}
-	Let $\mathcal{W}$ be a class of neighborhoods of a given point $a$ (or a given set $X$) on the topological space $(E, \tau)$. We call $\mathcal{W}$ a \emph{fundamental neighborhood system} of $a$ (or $X$) if every neighborhood $V$ of $a$ (or $X$), is an element of $\mathcal{W}$, i.e., $V \in \mathcal{W}$.  
+	Let $\mathcal{W}$ be a class of neighborhoods of a given point $a$ (or a given set $X$) on the topological space $(E, \tau)$. We call $\mathcal{W}$ a \emph{fundamental neighborhood system} of $a$ (or $X$) if for every neighborhood $V$ of $a$ (or $X$), there exists $W \in \mathcal{W}$ such that $W \subseteq V$.  
 \end{definition}
 
 \begin{definition}
-	A topological space $(E, \tau)$ is said to satisfy the \emph{first axiom of numerability} if every $a \in E$, has a countable fundamental neighborhood system. 
+	A topological space $(E, \tau)$ is said to satisfy the \emph{first axiom of countability} if every $a \in E$, has a countable fundamental neighborhood system. 
 \end{definition}
 
 \begin{definition}
 	Let $(J, \leq)$ be a well-ordered set. A class of neighborhoods $(V_j)_{j \in J}$ of $a$, indexed on J, is said to be a \emph{nested} fundamental system of neighborhoods of $a$, if $V_k \subseteq V_j$ whenever $j \leq k$. 
 \end{definition}
+
+\begin{proposition}
+	Every topological space that satisfies the first axiom of countability has a nested fundamental neighborhood system.
+\end{proposition}
+\begin{proof}
+	Let $(E, \tau)$ be a topological space, and let $(W_n)_{n \in \NN}$ be a fundamental neighborhood system of $a \in E$. For each $n \in \NN$, define $V_n = \cap_{k=0}^n W_k$. Then $(V_n)_{n \in \NN}$ is a fundamental neighborhood system of $a$, and $V_k \subseteq V_i$ whenever $i \leq k$. Therefore $(V_n)_{n \in \NN}$	is a nested fundamental neighborhood system of $a$.
+\end{proof}
+
+\begin{theorem}
+	Let $(E, \tau)$ be a topological space; $(E, \tau)$ is separated if and only if, for every $a \in E$, the intersectiion of closed neighborhood of $a$ is equal to $\{a\}$.
+\end{theorem}
+\begin{proof}
+	Exercise!
+\end{proof}
+
+\begin{corollary}
+	For every Hausdorff (separated) topological space $E$ and $a \in E$, the singleton $\{a\}$ is a closed set.
+\end{corollary}
+
+\begin{definition}
+	In a topological space $E$, a point $a \in E$ is said to be \emph{isolated} if $\{a\}$ is open, or equivalently, if $\{a\}$ is a neighborhood of $a$.	
+\end{definition}
+
+If $E$ is a topological space, the class of all open sets of $E$, such that $a \in E$ is a fundamental neighborhood system of $a$. Therefore every point has a fundamental system of open neighborhoods. It is not true that every point has a  fundamental system of closed neighborhoods. Hence the following definition.
+
+\begin{definition}
+	A topological space $E$ is said to be \emph{regular} if it is Hausdorff and if every point $a \in E$ has a fundamental system of closed neighborhoods.
+\end{definition}
+
+\begin{definition}
+	The class $\mathcal{B} \subseteq \pset(E)$ is said to be a basis of a topological space $(E,\tau)$ (or a basis of $\tau$) if, $\mathcal{B} \subseteq \tau$ and every open set of $E$ is the intersection of elements of $\mathcal{B}$.
+\end{definition}
+
+\begin{remark}
+	A basis for a topology $\tau$ determines $\tau$ in its entirety, since every open is the intersection of elements from the basis. If a topological space has a countable basis, then it is said to satisfy the \emph{second axiom of countability}.
+\end{remark}
+
+\begin{theorem}
+	Let $(E, \tau)$ be a topological space and $\mathcal{B} \in \tau$. The class $\mathcal{B}$ is a basis of $E$ if and only if, for every $a \in E$, the class $\{X \in \mathcal{B}: a \in X \}$ is a fundamental neighborhood system of $a$.
+\end{theorem}
+\begin{proof}
+Exercise!	
+\end{proof}
+
+\begin{theorem}
+	Let $\mathcal{B} \subseteq \pset(E)$. Then there exists a unique topology $\tau$ in $E$, for which $\mathcal{B}$ is a basis of the topological space $(E, \tau)$ if and only if, $\mathcal{B}$ satisfies the following two conditions:
+	\begin{enumerate}
+		\item
+			\begin{equation*}
+				\left ( \bigcup_{A \in \mathcal{B}} A \right )  = E.
+			\end{equation*}
+		\item
+			For all $A,B \in \mathcal{B}$ and $x \in A \cap B$, there exists $C \in \mathcal{B}$, such that $x \in C$ and $C \subseteq (A \cap B)$.
+	\end{enumerate}
+	
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+
