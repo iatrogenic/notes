@@ -25,14 +25,52 @@ Let $E_1, E_2$ be topological spaces and $f : E_1 \to E_2$ a function. The follo
 \begin{proof}
 \end{proof}
 
+\begin{definition}
+	Let $(E_1, \tau_1)$ and $(E_2, \tau_2)$ be two topological spaces and $f : (E_1, \tau_1) \to (E_2, \tau_2)$ a function. The function $f$ is said to be \emph{open} (respectively \emph{closed}) if $f(O) \in \tau_2$ (respectively $E_2 \setminus f(O) \in \tau_2$) whenever $O \in \tau_1$ (respectively $E_1 \setminus O \in \tau_1$).	
+\end{definition}
+
 \begin{theorem}
 	Let $E_1, E_2, E_3$ be topological spaces and $f: E_1 \to E_2$ , $g: E_2 \to E_3$ two given functions. If $f$ is continuous at $a \in E_1$ and $g$ is continuous at $b = f(a) \in E_2$, then $g \circ f$ is continuous at $a \in E_1$.	
 \end{theorem}
 \begin{proof}
 \end{proof}
 
+\begin{definition}
+	If $f: E_1 \to E_2$ is continuous and bijective, then it is called a \emph{homeomorphism}. The topological space $E_1$ is said to be \emph{homeomorphic} to $E_2$ if such a function exists. 
+\end{definition}
+
 \subsection{Limits}
 
-
+\begin{definition}
+	Let $(E_1, \tau_1)$ and $(E_2, \tau_2)$ be topological spaces. Let $f : X \subseteq E_1 \to E_2$ be a function, let $a \in \overline X$ and $\lambda \in E_2$.
+	\begin{itemize}
+		\item
+		We say that $f(x)$ \emph{tends to} $\lambda$ when $x$ \emph{tends to} $a$, if:
+		\begin{equation*}
+		\forall O_2 \in \tau_2, \lambda \in O_2:  \exists O_1 \in \tau_1, a \in O_1 : x \in (O_1 \cap X) \Rightarrow f(x) \in O_2.
+		\end{equation*}
+		\item
+		If $(E_2, \tau_2)$ is a Hausdorff space, then $\lambda$ is said to be the \emph{limit} of $f(x)$ as $x$ tends to $a$, and write:
+		\begin{equation*}
+			\lim_{x \to a} f(x) = \lambda.
+		\end{equation*}
+		\item
+			Let $D \subseteq X$, suppose $a \in \overline D$. We say that $f(x)$ tends to $\lambda$ when $x$ tends to $a$ by elements of $D$ if $f$ restricted to $D$ tends to $\lambda$ when $x$ tends to $a$. In this case we write:
+		\begin{gather*}
+			\lambda = \lim_{x \to a, x \in D} f(x)	\text{ ,which is logically equivalent to:} \\ \forall O_2 \in \tau_2, \lambda \in O_2 : O_1 \in \tau_1, a \in O_1: x \in (O_1 \cap D) \Rightarrow f(x) \in O_2.
+		\end{gather*}
+	\end{itemize}
+	\end{definition}
 
 \subsection{Sequences}
+
+\begin{definition}
+	Let $(x_n)_{n \in \NN}$	be a sequence defined on a topological space $(E, \tau)$. The sequence $(x_n)$ is said to converge to $a \in E$ as $n$ tends to $+ \infty$, written as $x_n \to a$ (meaning $a = \lim_{n \to + \infty} x_n $), if:
+	\begin{equation*}
+	\forall O \in \tau, a \in O: \exists p \in \NN, n \geq p \Rightarrow x_n \in O.	
+	\end{equation*}
+\end{definition}
+
+\begin{theorem}
+	Let $(E, \tau)$ a topological space, $X \subseteq E$, and $a \in E$.
+\end{theorem}

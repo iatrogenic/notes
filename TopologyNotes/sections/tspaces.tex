@@ -30,8 +30,8 @@ Two topologies are said to be \emph{comparable} if one is finer than the other.
 \begin{definition}
     Let $(E, \tau)$ be a topological space, $a$ an element of $E$, and $X \in \pset(E)$. Then:
     \begin{align*}
-        a \text{ is an interior point of } X && \Leftrightarrow && \exists O \in \tau, a \in O \text{ and } 0 \subseteq X, \\
-        a \text{ is an exterior point of } X && \Leftrightarrow && \exists O \in \tau, a \in O \text{ and } 0 \subseteq E \setminus X, \\
+        a \text{ is an interior point of } X && \Leftrightarrow && \exists O \in \tau, a \in O \text{ and } O \subseteq X, \\
+        a \text{ is an exterior point of } X && \Leftrightarrow && \exists O \in \tau, a \in O \text{ and } O \subseteq E \setminus X, \\
         a \text{ is a boundary point of } X && \Leftrightarrow && \forall O \in \tau, a \in O , O \cap X \neq \emptyset \text{ and } O \cap (E \setminus X) \\
     \end{align*}
 \end{definition}

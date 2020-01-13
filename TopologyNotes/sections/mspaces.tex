@@ -1,0 +1,103 @@
+\subsection{Metrics}
+\begin{definition}
+	A function $d : E \times E \to \RR$ is said to be a \emph{metric} on a set $E$ if, for any $x,y,z \in E$:
+\begin{enumerate}
+	\item
+		$d(x,y) \geq 0$;
+	\item
+		$d(x,y) = 0 \Leftrightarrow x = y$;
+	\item
+		$d(x,y) = d(y,x)$;
+	\item
+		$d(x,y) \leq d(x,z) + d(z,y)$.
+\end{enumerate}
+The pair $(E, d)$ is called a \emph{metric space} if $d$ is a metric on $E$.
+\end{definition}
+
+TO-DO: Insert Examples
+
+\subsection{The Topology of a Metric Space}
+Given any metric space $(E, d)$ it is possible to define a topology on it. Consider the sets
+\begin{align*}
+	B_{op}(a;R) \coloneqq \{ x \in E : d(x,a) < R \}, \\
+	B_{cl}(a;R) \coloneqq \{ x \in E : d(x,a) \leq  R \}
+\end{align*}
+The former is called the \emph{open ball} (the latter, \emph{closed ball}) with center $a$ and radius $R$.
+We also define the \emph{sphere} centered at $a$ with radius $R$ to be the set
+\begin{equation*}
+	S(a;R) \coloneqq \{ x \in E : d(x,a) = R \}.
+\end{equation*}
+By convention $B(a;R) = B_{op}(a;R)$. \par
+The geometric motivation for these definitions becomes clear once the $\RR^2$ case is considered. 
+
+TO-DO: Insert pictures
+
+From these definitions we may easily deduce that:
+\begin{align*}
+	B_{cl}(a;R) = B_{op}(a;R) \cup S(a;R) ; \\
+	B_{op}(a;R) \subset B_{cl}(a;R) ; \\
+	R < R^\prime \Rightarrow B_{cl}(a;R) \subset B_{op}(a;R).
+\end{align*}
+
+\begin{definition}
+	Let $(E, d)$ be a metric space and $X \subset E$. The set $X$ is said to be \emph{bounded} if $\exists a \in E$ and $\exists R \in \RR^+$, such that $X \subseteq B_{op}(a;R)$. \par
+	Analogously, a function $f : I \to E$ (with $I$ an arbitrary set) is bounded if $f(I)$ is a bounded set. In particular, a sequence $(x_n)_{n \in \NN}$ on $E$ is bounded if:
+	\begin{equation*}
+		\exists a \in E, \exists R \in \RR^+ : \forall n \in \NN : d(x_n, a) \leq R .
+	\end{equation*}
+\end{definition}
+
+
+\begin{definition}
+	Let $(E,d)$ be a metric space. Consider the following set:
+	\begin{equation*}
+		\tau_d \coloneqq \{O \subset E : \forall a \in O, \exists R \in \RR^+ : B(a;R) \subset O \}.
+	\end{equation*}
+	This set will be called the \emph{generated topology by the metric} $d$ on $E$.
+\end{definition}
+
+\begin{theorem}
+	Every metric space is Hausdorff.	
+\end{theorem}
+
+Apply concepts from topology to derive a "definition" of convergence for metric spaces.
+
+\begin{definition}
+	Let $d_1$ and $d_2$ be two metrics on $E$; they are said to be \emph{equivalent} if $\tau_{d_1} = \tau_{d_2}$.
+\end{definition}
+
+\begin{proposition}
+	Let $d_1, d_2$ be metrics on $E$.
+	If there exists $\alpha, \beta \in \RR^+$ such that, for every $x,y\in E$:
+	\begin{equation*}
+		\alpha d_1(x,y) \leq d_2(x,y) \leq \beta d_1(x,y)	
+	\end{equation*}
+\end{proposition}
+\subsection{Continuity}
+\begin{definition}
+continuity at a point	
+\end{definition}
+
+\begin{definition}
+Continuous on a set	
+\end{definition}
+
+\begin{definition}
+Uniformly continuous	
+\end{definition}
+
+\begin{definition}
+lipschitzian	
+\end{definition}
+
+\begin{definition}
+	Lipschitz's constant
+\end{definition}
+
+\begin{definition}
+	function is a contraction
+\end{definition}
+
+\begin{theorem}
+	Let $I$ be a non-degenerate interval of $\RR$ and let $f : I \to \RR$ be a continuous function on $I$ and differentiable on $\Int(I)$. Then $f$ is lipschitzian, if and only if, $f^\prime$ is bounded. In this case $L_f = \sup _{y \in \interior(I)]} \mid f^\prime (y) \mid$.
+\end{theorem}
