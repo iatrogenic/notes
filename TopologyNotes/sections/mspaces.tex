@@ -40,10 +40,10 @@ From these definitions we may easily deduce that:
 \end{align*}
 
 \begin{definition}
-	Let $(E, d)$ be a metric space and $X \subset E$. The set $X$ is said to be \emph{bounded} if $\exists a \in E$ and $\exists R \in \RR^+$, such that $X \subseteq B_{op}(a;R)$. \par
+	Let $(E, d)$ be a metric space and $X \subset E$. The set $X$ is said to be \emph{bounded} if $\exists a \in E$ and $\exists R \in \RR_+$, such that $X \subseteq B_{op}(a;R)$. \par
 	Analogously, a function $f : I \to E$ (with $I$ an arbitrary set) is bounded if $f(I)$ is a bounded set. In particular, a sequence $(x_n)_{n \in \NN}$ on $E$ is bounded if:
 	\begin{equation*}
-		\exists a \in E, \exists R \in \RR^+ : \forall n \in \NN : d(x_n, a) \leq R .
+		\exists a \in E, \exists R \in \RR_+ : \forall n \in \NN : d(x_n, a) \leq R .
 	\end{equation*}
 \end{definition}
 
@@ -51,7 +51,7 @@ From these definitions we may easily deduce that:
 \begin{definition}
 	Let $(E,d)$ be a metric space. Consider the following set:
 	\begin{equation*}
-		\tau_d \coloneqq \{O \subset E : \forall a \in O, \exists R \in \RR^+ : B(a;R) \subset O \}.
+		\tau_d \coloneqq \{O \subset E : \forall a \in O, \exists R \in \RR_+ : B(a;R) \subset O \}.
 	\end{equation*}
 	This set will be called the \emph{generated topology by the metric} $d$ on $E$.
 \end{definition}
@@ -68,7 +68,7 @@ Apply concepts from topology to derive a "definition" of convergence for metric 
 
 \begin{proposition}
 	Let $d_1, d_2$ be metrics on $E$.
-	If there exists $\alpha, \beta \in \RR^+$ such that, for every $x,y\in E$:
+	If there exists $\alpha, \beta \in \RR_+$ such that, for every $x,y\in E$:
 	\begin{equation*}
 		\alpha d_1(x,y) \leq d_2(x,y) \leq \beta d_1(x,y)	
 	\end{equation*}
@@ -96,7 +96,7 @@ Apply concepts from topology to derive a "definition" of convergence for metric 
 
 
 \begin{definition}
-	A function $f: E_1 \to E_2$ is \emph{Lipschitz continuous} if there exists $C \in \RR^+$, such that:
+	A function $f: E_1 \to E_2$ is \emph{Lipschitz continuous} if there exists $C \in \RR_+$, such that:
 	\begin{equation*}
 		\forall x,y \in E_1 : d_2(f(x), f(y)) \leq C d_1(x,y).
 	\end{equation*}		
@@ -110,7 +110,7 @@ Apply concepts from topology to derive a "definition" of convergence for metric 
 
 
 \begin{definition}
-	function is a contraction
+	A function $f : E_1 \to E_2$ is a \emph{contraction} if it is Lipschitz continuous and $L_f < 1$.
 \end{definition}
 
 \begin{theorem}

@@ -1,0 +1,65 @@
+\subsection{Connected Spaces}
+
+\begin{definition}
+	Let $E$ be a topological space. $E$ is \emph{disconnected} if two non-empty disjoint open sets $U,V$ exist such that $E = U \cup V$. The space is said to be \emph{connected} if this isn't the case.	
+\end{definition}
+
+\begin{theorem}
+	Let $E_1, E_2$ be topological spaces and let $f : E_1 \to E_2$ be a function. If $f$ is continuous and $E_1$ is connected, then $f(E_1)$ is connected.
+\end{theorem}
+
+\begin{theorem}
+	Let $E$ be a topological space, let $J \neq \emptyset$, and let $(X_j)_{j \in J}$ be a collection of connected subsets of $E$. Then, if $X_i \cap X_j \neq \emptyset$ for every $i,j \in J$, the set $\cup_{j \in J} X_j$ is connected.	
+\end{theorem}
+
+\begin{theorem}
+Let $E$ be a topological space and let $X$ be a subset of $E$. Then, if $X$ is connected, so is $\overline X$.	
+\end{theorem}
+
+\begin{definition}
+	Let $E$ be a topological space. We define the following equivalence relation on $E$:
+	\begin{equation*}
+		xRy \Leftrightarrow \exists S \subset E \land S \text{ connected } \land  x,y \in S	
+	\end{equation*}
+	If $(x,y) \in R$ then $x$ is said to be \emph{connected} to $y$. The equivalence classes determined by $R$ on $E$ are called the connected components of $E$.
+\end{definition}
+
+\begin{theorem}
+	Let $E$ be a topological space, $a$ an element of $E$, and $V$ the connected component to which $a$ belongs. Then
+	\begin{equation*}
+		V = \bigcup_{\substack{J \text{ connected subset of } E \\ a \in J}} J,
+	\end{equation*}
+	and $V$ is a closed connected subset of $E$.
+\end{theorem}
+
+\begin{theorem}
+	Let $X$ be a subset of $\overline \RR$. The set $X$ is connected, if and only if $X$ is an interval of $\overline \RR$	
+\end{theorem}
+
+\subsection{Arcwise Connected Spaces}
+
+\begin{definition}
+	Let $E$ be a topological space and let $a,b \in E$. An \emph{arc from} $a$ \emph{to} $b$ is a continuous map $f : [ \alpha , \beta] \subset \RR \to E$, such that $\alpha \leq \beta$ and $f(\alpha) = a, f(\beta) = b$. 
+\end{definition}
+
+\begin{definition}
+	A topological space $E$ is \emph{arcwise connected} if, for every $(a,b) \in E \times E$, there exists an arc from $a$ to $b$.	
+\end{definition}
+
+\begin{theorem}
+Every connected space is also arcwise connected.	
+\end{theorem}
+
+\subsection{Locally Connected Spaces}
+
+\begin{definition}
+	A topological space $E$ is said to be \emph{locally connected} if for every point $a \in E$, there exists a fundamental system of connected neighborhoods.
+\end{definition}
+
+\begin{theorem}
+	Every connected component of a locally connected space is both open and closed.
+\end{theorem}
+
+\begin{definition}
+	A topological space is said to be \emph{arcwise locally connected} if for every point there exists a fundamental system of arcwise connected neighborhoods.
+\end{definition}

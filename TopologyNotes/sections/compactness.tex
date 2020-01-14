@@ -1,0 +1,88 @@
+\subsection{Compact Spaces}
+\begin{definition}
+	Let $A$ be an arbitrary set. 
+	\begin{itemize}
+		\item
+			A collection $\mathcal{T}$ of subsets of $A$ is said to be a \emph{covering} of $A$ if $\cup_{t \in \mathcal{T}} t = A;$ 
+		\item
+			A \emph{subcovering} of $\mathcal{T}$ is a covering $\mathcal{T}^\prime$ of $A$ such that $\mathcal{T}^\prime \subset \mathcal{T}$;
+		\item
+			A covering $\mathcal{T}$ is said to be \emph{finite} if $\mathcal{T}$ is a finite collection;
+		\item
+			A covering $\mathcal{T}$ is said to be \emph{open} if its elements are all open sets.
+	\end{itemize}
+	\end{definition}
+
+\begin{definition}
+	A topological space $E$ satisfies the \emph{Heine-Borel-Lebesgue} (H-B-L) property if every open covering of $E$ has finite subcovering.
+\end{definition}
+\begin{definition}
+A Hausdorff space $E$ that satisfies the H-L-B is called \emph{compact}.
+\end{definition}
+
+\begin{theorem}
+	Let $E$ be a Hausdorff space; then $E$ is compact, if and only if, for every collection $\{F_j\}_{j \in J}$ of closed subsets of $E$ such that $\cap_{j \in J} F_j = \emptyset$, there exists a finite number of sets $F_1, \ldots, F_n$ such that $\cap_{i=1}^n F_i = \emptyset$.
+\end{theorem}
+
+\begin{definition}
+	A subset $X$ of a topological space $(E, \tau)$ is said to be compact if $(X, \tau_E)$ is a compact space, where $\tau_E$ is the induced topology.
+\end{definition}
+
+\begin{theorem}
+	Let $E$ be a Hausdorff space. Let $\{X_1, \ldots, X_n\}$ a collection of compact subsets of $E$ such that: $X = \cup_{i = 1}^n X_i$. Then, $X$ is compact.	
+\end{theorem}
+
+\begin{theorem}
+Let $E$ be a Hausdorff space and $X \subset E$ compact. Then, $X$ is closed.	
+\end{theorem}
+
+\begin{theorem}
+Let $E$ be a compact topological space and let $X \subset E$ be a closed set. Then, $X$ is compact.
+\end{theorem}
+
+\begin{theorem}
+Let $E$ be a compact topological space. Then, every $a \in E$ has a fundamental system of compact neighborhoods.
+\end{theorem}}
+
+\begin{corollary}
+Every compact space $E$ is regular.	
+\end{corollary}
+
+\begin{theorem}
+	Let $E_1$ be a compact topological space, $E_2$ a Hausdorff space, and $f : E_1 \to E_2$ a continuous function. Then, $f(E_1)$ is a compact subset of $E_2$.	
+\end{theorem}
+
+\begin{corollary}
+	Let $E_1$ and $E_2$ be two homeomorphic topological spaces. Then $E_1$ is compact, if and only if, $E_2$ is compact.
+\end{corollary}
+
+\begin{definition}
+	A topological space $E$ is said to be \emph{sequentially compact} if it is Hausdorff and every sequence $x : \NN \to E$ has a convergent subsequence.
+\end{definition}
+
+\begin{definition}
+	A topological space is \emph{locally compact} if it is Hausdorff and every point has a compact neighborhood.
+\end{definition}
+
+\subsection{Compactness in Metric Spaces}
+
+\begin{theorem}
+Let $E$ be a metrizable topological space. The space $E$ is compact, if and only if, every sequence on $E$ has a convergent subsequence.	
+\end{theorem}
+
+\begin{theorem}
+	Let $(E,d)$ be a compact metric space; let $(E_0, d_0)$ any metric space, and let $f : E \to E_0$ be a continuous function. Then $f$ is uniformly continuous.	
+\end{theorem}
+
+\begin{theorem}
+	Let $a,b \in \RR$ with $a < b$, then the interval $[a,b]$ is compact.	
+\end{theorem}
+
+\begin{corollary}
+The space $\RR$ is locally compact.	
+\end{corollary}
+
+\begin{theorem}
+	%to-delete?
+	Let $(E_1, d_1), \ldots, (E_n, d_n)$ be a list of compact metric spaces, and let $E = E_1 \times \dots \times E_n$ 
+\end{theorem}
