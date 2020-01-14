@@ -72,27 +72,42 @@ Apply concepts from topology to derive a "definition" of convergence for metric 
 	\begin{equation*}
 		\alpha d_1(x,y) \leq d_2(x,y) \leq \beta d_1(x,y)	
 	\end{equation*}
+	then, $d_1$ and $d_2$ are equivalent metrics.
 \end{proposition}
 \subsection{Continuity}
 \begin{definition}
-continuity at a point	
+	Let $(E_1, \d_1)$ and $(E_2, d_2)$ be metric spaces. A function $f : E_1 \to E_2$ is \emph{continuous at point} $a \in E_1$ if:
+	\begin{equation*}
+		\forall \epsilon > 0, \exists \delta > 0, \forall x \in E_1 : x \in B(a; \delta) \Rightarrow f(x) \in B(f(a); \epsilon).
+	\end{equation*}
+	Two alternative equivalent statements:
+	\begin{gather*}
+		\forall \epsilon > 0, \exists \delta > 0, \forall x \in E_1: d_1(x;a) \leq \delta \Rightarrow d_2(f(x); f(a)) \leq \epsilon; \\ 
+		\forall \epsilon > 0, \exists \delta > 0: f(B(a; \delta)) \subset B(f(a); \epsilon).
+	\end{gather}
+	The function $f$ is said to be \emph{continuous}, if $f$ is continuous at every point in $E_1$.
+% motivate uniform continuity
+	If $f$ is continuous and additionally satisfies:
+	\begin{equation*}
+		\forall \epsilon > 0, \exists \delta > 0, \forall x, a \in E_1 : d_1(x;a) \leq \delta \Rightarrow d_2(f(x);f(a)) \leq \epsilon
+	\end{equation*}
+	then $f$ is said to be \emph{uniformly continuous}. 
 \end{definition}
 
-\begin{definition}
-Continuous on a set	
-\end{definition}
 
 \begin{definition}
-Uniformly continuous	
+	A function $f: E_1 \to E_2$ is \emph{Lipschitz continuous} if there exists $C \in \RR^+$, such that:
+	\begin{equation*}
+		\forall x,y \in E_1 : d_2(f(x), f(y)) \leq C d_1(x,y).
+	\end{equation*}		
+	To the real number $L_f$ defined by:
+	\begin{equation*}
+		L_f = \inf \{ C \in \RR : \forall x,y \in E_1 : d_2(f(x),f(y)) \leq C d_1(x,y) \},
+	\end{equation*}
+		is called a \emph{Lipschitz constant}.
 \end{definition}
 
-\begin{definition}
-lipschitzian	
-\end{definition}
 
-\begin{definition}
-	Lipschitz's constant
-\end{definition}
 
 \begin{definition}
 	function is a contraction
