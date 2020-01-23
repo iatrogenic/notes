@@ -12,7 +12,7 @@
 	\item
 		It is associative, i.e., if $\gamma \in \FF$ then $(\alpha + \beta) + \gamma = \alpha + (\beta + \gamma);$
 	\item
-		There exists an element (identity) $z \in \FF$, such that $\alpha + z = \alpha$. It will be shown that this element is unique, thus it will always be denoted by $0$ and called zero;
+		There exists an element (called \emph{additive identity}) $z \in \FF$, such that $\alpha + z = \alpha$. It will be shown that this element is unique, thus it will always be denoted by $0$ and called zero;
 	\item
 		Every element is invertible, that is, there exists $l$ such that $\alpha + l = 0$. As in the previous property, the additive inverse of an element $\alpha$ in uniquely determined, and thus will be denoted by $-\alpha$.
 \end{enumerate}
@@ -27,7 +27,7 @@ satisfying, for all $\alpha, \beta \in \FF$:
 	\item
 		If $\gamma \in \FF$ then $(\alpha \beta) \gamma = \alpha (\beta \gamma)$;
 	\item
-		There exists $e \in \FF$ such that $e \alpha = \alpha$ for every $\alpha \in \FF$. This element is unique and denoted by $1$;
+		There exists $e \in \FF$ (called an \emph{multiplicative identity}) such that $e \neq 0$ and $e \alpha = \alpha$ for every $\alpha \in \FF$. This element is unique and denoted by $1$;
 	\item
 		For every $\alpha \neq 0$, there exists $\gamma \in \FF$ such that $\alpha \gamma = 1$. The element $\gamma$ is uniquely determined by $\alpha$ so it will be denoted by $\alpha^{-1}$.
 	\item \emph{Multiplication is distributive over addition}, i.e., $\alpha( \beta + \gamma) = \alpha \beta + \alpha \gamma$.
@@ -37,25 +37,24 @@ satisfying, for all $\alpha, \beta \in \FF$:
 
 
 \begin{example}
-	
-\begin{itemize}
-	\item $\RR, \CC$ and $\QQ$ are the most commonly encountered fields.
-	\item The set $ \QQ[\sqrt 2] = \{a + b \sqrt 2 : a, b \in \QQ \}$
-\end{itemize}	
+	$\RR, \CC$ and $\QQ$ are the most commonly encountered fields.
 \end{example}
 
-\begin{proposition}[Basic properties of fields]
+\begin{example}
+	The set $ \QQ[\sqrt 2] = \{a + b \sqrt 2 : a, b \in \QQ \}$ together with the usual addition and multiplication is a field.
+\end{example}
+
+\begin{proposition}
 	Let $\FF$ be a field.
 \begin{enumerate}
 	\item Both additive and multiplicative identities are unique; 
-	\item $0 \neq 1$;
-	\item For all $\alpha \in \FF$, $\alpha 0 = 0$.
+	\item For all $\alpha \in \FF$, $\alpha 0 = 0$;
+	\item For all $\alpha \in \FF$, $- \alpha = (-1) \alpha$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
-	\begin{enumerate}
-	\item	
-		Let $\alpha$ be an element of $\FF$. Let $e, e^\prime \in \FF$ both additive identities, then $e = e + e^\prime = e^\prime + e = e^\prime$. The uniqueness of the multiplicative identity follows from an identical argument.	
-	\end{enumerate}
+	\textbf{1.):}
+	Let $e, e^\prime \in \FF$ both additive identities, then $e = e + e^\prime = e^\prime + e = e^\prime$. The uniqueness of the multiplicative identity follows from an identical argument.	
+\par \textbf{2.)} 
+Let $\alpha \in \FF$, $\alpha 0 = \alpha (0 + 0) = \alpha 0 + \alpha 0$, add the additive inverse of $\alpha 0$ to both sides and we get the desired equality. \textbf{3.)}  $\alpha + (-1)\alpha = (1 + (-1))\alpha = 0\alpha$ which is equal to $0$ by the previous proposition. Thus we get $\alpha + (-1)\alpha = \alpha - \alpha \Leftrightarrow (-1) \alpha = - \alpha$. 
 \end{proof}
-
