@@ -3,7 +3,7 @@
 \begin{definition}
 	A \emph{field} is a set $\FF$ together with the two following binary operations. Addition is a map:
 	\begin{equation*}
-		+ : \FF \times \FF \to \FF; \quad (a,b) \mapsto a+b,$ 
+		+ : \FF \times \FF \to \FF; \quad (a,b) \mapsto a+b,
 	\end{equation*}
 	such that, if $\alpha, \beta\in \FF$, then the following properties are satisfied:
 \begin{enumerate}
@@ -73,7 +73,7 @@ Let $\alpha \in \FF$, $\alpha 0 = \alpha (0 + 0) = \alpha 0 + \alpha 0$, add the
 		\item
 			For all $\alpha, \beta, \gamma \in V$ the equation $\alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma$ holds;
 		\item
-			For all $\alpha, \beta \in \V$, $\alpha + \beta = \beta + \alpha$;
+			For all $\alpha, \beta \in V$, $\alpha + \beta = \beta + \alpha$;
 		\item
 			There exists $0 \in V$ such that $\alpha + 0 = \alpha$ for all $\alpha \in V$;
 		\item
@@ -81,10 +81,21 @@ Let $\alpha \in \FF$, $\alpha 0 = \alpha (0 + 0) = \alpha 0 + \alpha 0$, add the
 		\item
 			Let $1 \in \FF$ be its multiplicative identity, then $1 \alpha = \alpha$ for all $\alpha \in V$;
 		\item
-			For all $x,y \in \FF$ and $\alpha, \beta \in V$, $x(\alpha + \beta) = x\alpha + x\beta$ and (x+y) \alpha = x \alpha + y \alpha$.
+			For all $x,y \in \FF$ and $\alpha, \beta \in V$, $x(\alpha + \beta) = x\alpha + x\beta$ and $(x+y) \alpha = x \alpha + y \alpha$.
 	\end{enumerate}
 	If $\FF = \RR$ then $V$ is said to be a \emph{real vector space}. If $\FF = \CC$ then $V$ is said to be a \emph{complex vector space}. 
 \end{definition}
 The section on fields is optional because we'll be mostly dealing with either real or complex vector spaces, meaning the familiar arithmetic of these sets suffices for most examples. However, at least in these initial chapters, the results that will be proven will not depend on any properties particular to these two specific fields, thus they are equally applicable to the more abstract case.
 
+\begin{example}
+	Consider the set $\CC$ of complex numbers. This set, together with a scalar multiplication map $(r, z) \in \RR \times \CC \mapsto rz \in \CC$ and the usual complex number addition, form a real vector space.
+\end{example}
+
+\begin{notation}
+	Let $F$ and $A$ be sets. By $F^A$ we mean the set of functions from $A$ to $F$. Consider $\RR^\RR$ as an example, this is the set of all real-valued functions of one real variable.
+\end{notation}
+
+\begin{example}
+	The set $\RR^A$, where $A$ is an arbitrary set, under the natural operations of addition of two functions and multiplication of a function by a real number, is a real vector space. Note that $\RR^n$ with $n \in \NN$ is a particular example of such sets, since $\RR^{ \{ 1, \ldots, n \} } = \RR^n$. \footnote{To be more precise, they are isomorphic. This concept will be explored later.}	
+\end{example}
 \subsubsection{Subspaces}
