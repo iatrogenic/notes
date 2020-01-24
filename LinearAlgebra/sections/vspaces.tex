@@ -1,9 +1,9 @@
-\subsection{Fields}
+\subsection{Fields (optional)}
 
 \begin{definition}
-	A \emph{field} is a set $\FF$ together with two binary operations. Addition is a map:
+	A \emph{field} is a set $\FF$ together with the two following binary operations. Addition is a map:
 	\begin{equation*}
-		+ : \FF^2 \to \FF; \quad (a,b) \mapsto a+b,$ 
+		+ : \FF \times \FF \to \FF; \quad (a,b) \mapsto a+b,$ 
 	\end{equation*}
 	such that, if $\alpha, \beta\in \FF$, then the following properties are satisfied:
 \begin{enumerate}
@@ -18,7 +18,7 @@
 \end{enumerate}
 Multiplication, frequently denoted by $\times$ or $\cdot$, is a map:
 \begin{equation*}
-	\cdot : \FF^2 \to \FF; \quad (a,b) \mapsto a \cdot b,
+	\cdot : \FF \times \FF \to \FF; \quad (a,b) \mapsto a \cdot b = ab,
 \end{equation*}
 satisfying, for all $\alpha, \beta \in \FF$:
 \begin{enumerate}
@@ -58,3 +58,33 @@ satisfying, for all $\alpha, \beta \in \FF$:
 \par \textbf{2.)} 
 Let $\alpha \in \FF$, $\alpha 0 = \alpha (0 + 0) = \alpha 0 + \alpha 0$, add the additive inverse of $\alpha 0$ to both sides and we get the desired equality. \textbf{3.)}  $\alpha + (-1)\alpha = (1 + (-1))\alpha = 0\alpha$ which is equal to $0$ by the previous proposition. Thus we get $\alpha + (-1)\alpha = \alpha - \alpha \Leftrightarrow (-1) \alpha = - \alpha$. 
 \end{proof}
+
+\subsection{Vector Spaces}
+\begin{definition}
+	Let $V$ be a set and $\FF$ an arbitrary field, provided with with the mappings:
+	\begin{itemize}
+		\item
+			$(\alpha, \beta) \mapsto \alpha + \beta; \quad V \times V \to V,$ called \emph{addition};
+		\item
+			$(x, \alpha) \mapsto x\alpha; \quad \FF \times V \to V$, called \emph{scalar multiplication}.
+	\end{itemize}
+	$V$ is said to be a \emph{vector space over $\FF$} with respect to these operations if:
+	\begin{enumerate}
+		\item
+			For all $\alpha, \beta, \gamma \in V$ the equation $\alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma$ holds;
+		\item
+			For all $\alpha, \beta \in \V$, $\alpha + \beta = \beta + \alpha$;
+		\item
+			There exists $0 \in V$ such that $\alpha + 0 = \alpha$ for all $\alpha \in V$;
+		\item
+			For every $\alpha \in V$, there exists $\beta \in V$ such that $\alpha + \beta = 0$;
+		\item
+			Let $1 \in \FF$ be its multiplicative identity, then $1 \alpha = \alpha$ for all $\alpha \in V$;
+		\item
+			For all $x,y \in \FF$ and $\alpha, \beta \in V$, $x(\alpha + \beta) = x\alpha + x\beta$ and (x+y) \alpha = x \alpha + y \alpha$.
+	\end{enumerate}
+	If $\FF = \RR$ then $V$ is said to be a \emph{real vector space}. If $\FF = \CC$ then $V$ is said to be a \emph{complex vector space}. 
+\end{definition}
+The section on fields is optional because we'll be mostly dealing with either real or complex vector spaces, meaning the familiar arithmetic of these sets suffices for most examples. However, at least in these initial chapters, the results that will be proven will not depend on any properties particular to these two specific fields, thus they are equally applicable to the more abstract case.
+
+\subsubsection{Subspaces}
