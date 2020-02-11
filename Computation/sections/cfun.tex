@@ -1,5 +1,44 @@
 \subsubsection*{Basic Concepts}
-A \emph{partial function} is a map $f$ denoted $f : X \nrightarrow Y$ such that there exists a subset $X' \subseteq X$ for which $f : X^\prime \to Y$ is a function. If $X = X^\prime$ then $f$ is said to be a \emph{total function}. The domain of $f$ is denoted by $\Dom f$ and defined by the set $\{ x : f(x) \text{ is defined} \}$; we say that $f(x)$ is undefined if $x \notin \Dom f$. The range of $f$, denoted by $\Ran f$ is the set $\{ f(x) : x \in \Dom f \}$. Partial functions generalize the concept of function which here corresponds to the definition of total function. 
+A \emph{partial function} is a map $f$ denoted $f : X \nrightarrow Y$ such that there exists a subset $X' \subseteq X$ for which $f : X^\prime \to Y$ is a function. If $X = X^\prime$ then $f$ is said to be a \emph{total function}. The domain of $f$ is denoted by $\Dom f$ and defined by the set $\{ x : f(x) \text{ is defined} \}$; we say that $f(x)$ is undefined if $x \notin \Dom f$. The range of $f$, denoted by $\Ran f$ is the set $\{ f(x) : x \in \Dom f \}$. Whenever the word ``function" is used by itself, assume it to mean ``partial function". The usual meaning of the word ``function" corresopnds to what we here call ``total function." \par
+As an example, consider the partial function
+
+\begin{align*}
+	f : \NN_0  & \nrightarrow  \NN_0 \\
+		n  & \mapsto       \sqrt n.
+\end{align*}
+If $n \in \NN_0$ is not a perfect square, then $f(n)$ is undefined. \par 
 
 \subsection{What is a computable function?}
-Informally, an \emph{algorithm} is a sequence of mechanical instructions. A numerical function is \emph{effectively computable} if an algorithm exists that can be used to calculate the value of the function for any given input from its domain.
+\subsubsection*{Informal Discussion}
+An \emph{algorithm} is a sequence of discrete mechanical instructions that terminates. A numerical function is \emph{effectively computable} (or simply \emph{computable}) if an algorithm exists that can be used to calculate the value of the function for any given input from its domain.
+
+\subsubsection*{The Unlimited Register Machine}
+The \emph{unlimited register machine} has an infinite number of \emph{registers} labelled $R_1, R_2, \ldots$, each containing a natural number, if $R_i$ is a register then $r_i$ is the number it contains. It can be represented as follows
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c}
+		\hline
+		$R_1$ & $R_2$ & $R_3$ & $R_4$ & $R_5$ & $R_6$ & $R_7$ & $\cdots$\\ 
+		\hline
+		$r_1$ & $r_2$ & $r_3$ & $r_4$ & $r_5$ & $r_6$ & $r_7$ & $\cdots$  \\
+		\hline
+	\end{tabular}
+\end{center}
+The contents of a register may be altered by the URM in response to certain \emph{instructions} that it can recognize
+
+\subsubsection*{Instruction set}
+\begin{center}
+	\begin{tabular}{|c|c|p{11cm}|}
+	\hline 
+	Name of  Instruction & Instruction & URM response \\
+	\hline
+	Zero & $\Iz (n)$ & $r_n \gets 0$ \\ 
+	\hline
+	Successor & $\Is (n)$ & $r_n \gets r_n + 1$ \\
+	\hline
+	Transfer & $\It (m,n)$ & $r_n \gets r_m $ \\
+	\hline
+	Jump & $\Ij (m,n,q)$ & if $r_m = r_n$ then jump to $q$th instruction; otherwise proceed to next instruction. \\
+	\hline
+\end{tabular}
+\end{center}
