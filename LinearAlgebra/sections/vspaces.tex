@@ -97,4 +97,42 @@ Let $\alpha \in \FF$, $\alpha 0 = \alpha (0 + 0) = \alpha 0 + \alpha 0$, add the
 \begin{example}
 	The set $\RR^A$, where $A$ is an arbitrary set, under the natural operations of addition of two functions and multiplication of a function by a real number, is a real vector space. Note that $\RR^n$ with $n \in \NN$ is a particular example of such sets, since $\RR^{ \{ 1, \ldots, n \} } = \RR^n$. \footnote{To be more precise, they are isomorphic. This concept will be explored later.}	
 \end{example}
+
+\begin{proposition}
+Let $V$ be a vector space over $\FF$, then:
+\begin{enumerate}
+	\item
+		The additive identity, denoted $0$, is unique;
+	\item Let $\alpha \in V$ then its additive inverse, denoted $-\alpha$, is unique;
+	\item
+		$\forall \alpha \in V : 0 \alpha = 0$;
+	\item
+		$\forall x \in \FF : x0 = 0$;
+	\item
+		$\forall \alpha \in V : (-1) \alpha = - \alpha$.
+\end{enumerate}
+\end{proposition}
+
 \subsubsection{Subspaces}
+\begin{definition}
+	Let $V$ be a vector space over $\FF$. A subset $U$ of $V$ is said to be a \emph{subspace} of $V$ if it too is a vector space over $\FF$.
+\end{definition}
+
+\begin{proposition}
+	Let $V$ be a vector space over $\FF$ and $U \subseteq V$. $U$ is a subspace of $V$ if and only if $U$ satisfies the following conditions:
+	\begin{enumerate}
+		\item
+			$0 \in U$;
+		\item
+			$\alpha, \beta \in U \Rightarrow \alpha + \beta \in U$;
+		\item
+			$x \in \FF$ and $\alpha \in U \Rightarrow x \alpha \in U$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{definition} 
+	Let $U_1, \ldots, U_m$ be subsets of $V$. We define its \emph{sum} as
+	\begin{equation*}
+		U_1 + \cdots + U_m \coloneqq \{ u_1 + \cdots + u_m : u_1 \in U_1 , \ldots, u_m \in U_m \}. 
+	\end{equation*}
+\end{definition}
