@@ -1,16 +1,30 @@
-\subsubsection*{Basic Concepts}
-A \emph{partial function} is a map $f$ denoted $f : X \nrightarrow Y$ such that there exists a subset $X' \subseteq X$ for which $f : X^\prime \to Y$ is a function. If $X = X^\prime$ then $f$ is said to be a \emph{total function}. The domain of $f$ is denoted by $\Dom f$ and defined by the set $\{ x : f(x) \text{ is defined} \}$; we say that $f(x)$ is undefined if $x \notin \Dom f$. The range of $f$, denoted by $\Ran f$ is the set $\{ f(x) : x \in \Dom f \}$. Whenever the word ``function" is used by itself, assume it to mean ``partial function". The usual meaning of the word ``function" corresopnds to what we here call ``total function." \par
-As an example, consider the partial function
+\subsection{Basic Concepts}
+\subsubsection*{Partial Functions}
+A \emph{partial function} generalizes the usual definition of function, the idea being that this kind of function is potentially not defined on the entire domain. Formally:
+\begin{definition}
+	A \emph{partial funciton} $f$ from $X$ to $Y$ (written as $f : X \nrightarrow Y$)  is a triple $(g,X,Y)$ such that $X^\prime \subseteq X$ and $g:X^\prime \to Y$ is a function. Furthermore:
+	\begin{itemize}
+	 \item 
+		The \emph{domain} of $f$ is denoted by $\Dom(f)$ and is equal to $X^\prime$; 
+	 \item
+		 If $ \Dom(f) = X$ then $f$ is a \emph{total function}\footnote{Total functions and functions are equivalent.};
+	 \item
+		 If $x \in (X \setminus \Dom f)$ then $f(x)$ is said to be \emph{undefined}, denoted $f(x) = \--$, on the other hand, if $x \in \Dom f$ then we write $f(x) = y$ with $y = g(x)$ and say that $f$ is \emph{defined} at $x$.  
+ \end{itemize}
+\end{definition}
+Henceforth the word ``function" will always mean ``partial function."  As an example, consider the (partial) function:
 
 \begin{align*}
 	f : \NN_0  & \nrightarrow  \NN_0 \\
 		n  & \mapsto       \sqrt n.
 \end{align*}
-If $n \in \NN_0$ is not a perfect square, then $f(n)$ is undefined. \par 
+If $n \in \NN_0$ is not a perfect square, then $f(n)$ is undefined. 
+
+\subsubsection*{Lambda Notation}
 
 \subsection{What is a computable function?}
 \subsubsection*{Informal Discussion}
-An \emph{algorithm} is a sequence of discrete mechanical instructions that terminates. A numerical function is \emph{effectively computable} (or simply \emph{computable}) if an algorithm exists that can be used to calculate the value of the function for any given input from its domain.
+An \emph{algorithm} is a finite sequence of discrete mechanical instructions. A numerical function is \emph{effectively computable} (or simply \emph{computable}) if an algorithm exists that can be used to calculate the value of the function for any given input from its domain.
 
 \subsubsection*{The Unlimited Register Machine}
 The \emph{unlimited register machine} has an infinite number of \emph{registers} labelled $R_1, R_2, \ldots$, each containing a natural number, if $R_i$ is a register then $r_i$ is the number it contains. It can be represented as follows
@@ -24,7 +38,7 @@ The \emph{unlimited register machine} has an infinite number of \emph{registers}
 		\hline
 	\end{tabular}
 \end{center}
-The contents of a register may be altered by the URM in response to certain \emph{instructions} that it can recognize
+The contents of a register may be altered by the URM in response to certain \emph{instructions}. 
 
 \subsubsection*{Instruction set}
 \begin{center}
@@ -32,13 +46,15 @@ The contents of a register may be altered by the URM in response to certain \emp
 	\hline 
 	Name of  Instruction & Instruction & URM response \\
 	\hline
-	Zero & $\Iz (n)$ & $r_n \gets 0$ \\ 
+	Zero & $\Iz{n}$ & $r_n \gets 0$ \\ 
 	\hline
-	Successor & $\Is (n)$ & $r_n \gets r_n + 1$ \\
+	Successor & $\Is{n}$ & $r_n \gets r_n + 1$ \\
 	\hline
-	Transfer & $\It (m,n)$ & $r_n \gets r_m $ \\
+	Transfer & $\It{m}{n}$ & $r_n \gets r_m $ \\
 	\hline
-	Jump & $\Ij (m,n,q)$ & if $r_m = r_n$ then jump to $q$th instruction; otherwise proceed to next instruction. \\
+	Jump & $\Ij{m}{n}{q}$ & if $r_m = r_n$ then jump to $q$-th instruction; otherwise proceed to next instruction. \\
 	\hline
 \end{tabular}
 \end{center}
+
+
