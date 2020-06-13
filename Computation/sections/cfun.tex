@@ -7,7 +7,7 @@ A \emph{partial function} generalizes the usual definition of function, the idea
 	 \item 
 		The \emph{domain} of $f$ is denoted by $\Dom(f)$ and is equal to $X^\prime$; 
 	 \item
-		 If $ \Dom(f) = X$ then $f$ is a \emph{total function}\footnote{Total functions and functions are equivalent.};
+		 If $ \Dom(f) = X$ then $f$ is a \emph{total function}\footnote{Total functions and usual functions are equivalent.};
 	 \item
 		 If $x \in (X \setminus \Dom f)$ then $f(x)$ is said to be \emph{undefined}, denoted $f(x) = \--$, on the other hand, if $x \in \Dom f$ then we write $f(x) = y$ with $y = g(x)$ and say that $f$ is \emph{defined} at $x$.  
  \end{itemize}
@@ -21,7 +21,7 @@ Henceforth the word ``function" will always mean ``partial function."  As an exa
 If $n \in \NN_0$ is not a perfect square, then $f(n)$ is undefined. 
 
 \subsubsection*{Lambda Notation}
-
+We will often use Alonzo Church's \emph{lambda notation}. Given a mathematical expression $a(x_1, \ldots, x_n)$ the function $f: \NN_0^n \to \NN_0$ that maps $(x_1, \ldots, x_n) \mapsto a(x_1, \ldots, x_n)$ may be denoted by $\lambda_{x_1, \ldots, x_n}.f(x_1, \ldots, x_n)$ .
 \subsection{What is a computable function?}
 \subsubsection*{Informal Discussion}
 An \emph{algorithm} is a finite sequence of discrete mechanical instructions. A numerical function is \emph{effectively computable} (or simply \emph{computable}) if an algorithm exists that can be used to calculate the value of the function for any given input from its domain.
@@ -38,9 +38,9 @@ The \emph{unlimited register machine} has an infinite number of \emph{registers}
 		\hline
 	\end{tabular}
 \end{center}
-The contents of a register may be altered by the URM in response to certain \emph{instructions}. 
+The contents of the registers determine its \emph{state} or \emph{configuration}, which might be altered by the URM in response to certain \emph{instructions}. 
 
-\subsubsection*{Instruction set}
+\subsubsection*{URM Programs}
 \begin{center}
 	\begin{tabular}{|c|c|p{11cm}|}
 	\hline 
@@ -56,5 +56,22 @@ The contents of a register may be altered by the URM in response to certain \emp
 	\hline
 \end{tabular}
 \end{center}
+Without exception, the parameters of these instructions are elements of $\NN_1$.
+\begin{definition}
+	An \emph{URM program} is a finite sequence of URM instructions.	The number of instructions of a program is denoted by $\#P$.
+\end{definition}
+Given a program $P = (I_1 , \ldots, I_n)$ the URM always starts by executing $I_1$, the execution flow then proceeds incrementally unless a jump instruction is performed. The machine's response to each instruction is described in the table above.
 
+%initial configuration
 
+\begin{definition}
+	An URM program $P$ \emph{computes} the function $f : \NN_0^n \nrightarrow \NN_0$ if for every $a_1, \ldots, a_n, b \in \NN_0$ then:
+	\begin{equation*}
+		P(a_1, \ldots, a_n) \downarrow b \Leftrightarrow (a_1, \ldots, a_n) \in \Dom f \land f(a_1, \ldots, a_n) = b,	
+	\end{equation*}
+	and
+	\begin{equation*}
+		P(a_1, \ldots, a_n) \uparrow \, \Leftrightarrow f(a_1, \ldots, a_n) = \--	
+	\end{equation*}
+\end{definition}
+The class of URM-computable functions is denoted by $\mathcal{C}$ and by $\mathcal{C}_n$ the class of $n$-ary computable functions. 
