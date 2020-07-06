@@ -2,7 +2,7 @@
 \subsubsection*{Partial Functions}
 A \emph{partial function} generalizes the usual definition of function, the idea being that this kind of function is potentially not defined on the entire domain. Formally:
 \begin{definition}
-	A \emph{partial funciton} $f$ from $X$ to $Y$ (written as $f : X \nrightarrow Y$)  is a triple $(g,X,Y)$ such that $X^\prime \subseteq X$ and $g:X^\prime \to Y$ is a function. Furthermore:
+	A \emph{partial function} $f$ from $X$ to $Y$ (written as $f : X \nrightarrow Y$)  is a triple $(g,X,Y)$ such that $X^\prime \subseteq X$ and $g:X^\prime \to Y$ is a function. Furthermore:
 	\begin{itemize}
 	 \item 
 		The \emph{domain} of $f$ is denoted by $\Dom(f)$ and is equal to $X^\prime$; 
@@ -22,7 +22,7 @@ If $n \in \NN_0$ is not a perfect square, then $f(n)$ is undefined.
 
 \subsubsection*{Lambda Notation}
 We will often use Alonzo Church's \emph{lambda notation}. Given a mathematical expression $a(x_1, \ldots, x_n)$ the function $f: \NN_0^n \to \NN_0$ that maps $(x_1, \ldots, x_n) \mapsto a(x_1, \ldots, x_n)$ may be denoted by $\lambda_{x_1, \ldots, x_n}.f(x_1, \ldots, x_n)$ .
-\subsection{What is a computable function?}
+\subsection{The URM}
 \subsubsection*{Informal Discussion}
 An \emph{algorithm} is a finite sequence of discrete mechanical instructions. A numerical function is \emph{effectively computable} (or simply \emph{computable}) if an algorithm exists that can be used to calculate the value of the function for any given input from its domain.
 
@@ -75,3 +75,159 @@ Given a program $P = (I_1 , \ldots, I_n)$ the URM always starts by executing $I_
 	\end{equation*}
 \end{definition}
 The class of URM-computable functions is denoted by $\mathcal{C}$ and by $\mathcal{C}_n$ the class of $n$-ary computable functions. 
+
+\begin{definition}
+	Let $P$ be an URM program and $n \in \NN_1$. The unique $n$-ary function that $P$ computes is denoted by $f_P^{(n)}$, which, given any $x_1, \ldots, x_n \in \NN_0$, is defined by:
+	\[
+		f_P^{(n)}(x_1, \ldots, x_n) ) = 
+		\left\{
+	\begin{array}{ll}
+		\-- & \mbox{if } P(x_1, \ldots, x_n) \uparrow \\
+		y & \mbox{if } P(x_1, \ldots, x_n) \downarrow y 
+	\end{array}
+	\right. .
+	\]
+\end{definition}
+\begin{example}
+	Let $Q = (\Iz{2}, \Ij{1}{2}{6}, \Is{2}, \Ij{1}{1}{2}, \Is{3}, \It{2}{1})$. The binary function computed by $Q$ is $f_Q^{(2)}(x,y) = x$.
+\end{example}
+\begin{definition}
+Let $M(x_1, \ldots, x_n)$ be an $n$-ary predicate. The characteristic function of the predicate $M$ is the function $C_M : \NN_0^n \to \NN_0$ defined by:
+\[
+	C_M(x_1, \ldots, x_n) = 
+		\left\{
+	\begin{array}{ll}
+		1 & \mbox{if } M(x_1, \ldots, x_n) \\
+		0 & \mbox{if } \neg M(x_1, \ldots, x_n) 
+	\end{array}
+	\right. .
+\]
+The predicate $M$ is \emph{decidable} if its characteristic function is computable and \emph{undecidable} when it is not.
+\end{definition}
+
+\subsubsection*{Building programs out of other programs}
+\begin{definition}
+	A program $P$ is in \emph{standard form} if, for every jump instruction $\Ij{m}{n}{q} \in P$ it holds that $q \leq \#P + 1$.
+\end{definition}
+
+\begin{definition}
+	Let $P = (I_1, \ldots, I_n)$ be an URM program. We denote by $P^*$ the program $(I^\prime_1, \ldots, I^\prime_n)$ constructed as follows:
+	\[
+	I_i^\prime = 
+		\left\{
+	\begin{array}{ll}
+		\Ij{m}{n}{\#P+1} & \mbox{if } I_i = \Ij{m}{n}{k}, \text{ with } k > \#P+1 \\
+		I_i & \mbox{otherwise} 
+	\end{array}
+	\right. .
+	\]
+\end{definition}
+
+\begin{definition}
+	Two programs $P_1$ and $P_2$ are \emph{(strongly) equivalent} if, for any initial configuration $(a_1, a_2, a_3, \ldots)$ it holds that:
+	\begin{itemize}
+		\item $P_1(a_1, a_2, a_3, \ldots) \downarrow$ iff $P_2(a_1, a_2, a_3, \ldots) \downarrow$;
+		\item when it is the case that both computations $P_1(a_1, a_2, a_3, \ldots)$ and $P_2(a_1, a_2, a_3, \ldots)$ stop, the final configurations of both machines are equal. 
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}
+	Let $P$ be a URM program. The program $P^*$ is in standard form and is equivalent to $P$. 
+\end{theorem}
+
+\begin{definition}
+	Let $P$ and $Q$ be URM programs. The \emph{concatenation} of $P$ and $Q$, denoted by $P;Q$, is the URM program defined as follows:
+	\begin{itemize}
+		\item $\#(P;Q) = \# P + \# Q$,
+		\item For every $l \in \{ 1 , \ldots, \# P \}, (P;Q)[l] = P^\prime[l]$,
+		\item For every $k \in \{ 1 , \ldots, \# Q \}$:
+			\[
+				(P;Q)[\#P+k] = 
+		\left\{
+	\begin{array}{ll}
+		Q[k] & \mbox{if }  Q[k] \text{ is not a jump instruction}\\
+		\Ij{m}{n}{r+ \#P} & \mbox{ if } Q[k] = \Ij{m}{n}{r} 
+	\end{array}
+	\right. .
+			\]
+	\end{itemize}	
+\end{definition}
+
+\begin{definition}
+	Let $P$ be an URM program. If $ \{ R_{v_1}, \ldots, R_{v_n} \} $ is the set of registers mentioned in program $P$, we denote by $\rho(P)$ the number $ \max \{ v_1, \ldots, v_n \} $. 
+\end{definition}
+
+\begin{definition}
+	Let $n, j \geq 1$ and $i_1, \ldots, i_n > n$ and $P$ be an URM program. We denote by $P[i_1, \ldots, i_n \to j]$ the following URM program:
+	\[
+		(\It{i_1}{1}, \ldots, \It{i_n}{n}, \Iz{n+1}, \ldots, \Iz{\rho(P)}); P ; (\It{1}{j}),
+	\]
+	where the sequence of instructions $\Iz{n+1}, \ldots, \Iz{\rho(P)}$ only occurs if $\rho(P) > n$.
+\end{definition}
+
+\begin{definition}
+	A \emph{generalized URM program} $Q$ is a finite sequence of \emph{generalized URM instructions} $(I_1, \ldots, I_k)$, with $k \geq 1$, where each each of this sequence's elements is either a standard URM instruction or one of the following two (called $P$-calling instructions):
+	\begin{enumerate}
+		\item $\Ic{P}$,
+		\item $\Icall{P}{i_1, \ldots, i_n}{j}$,
+	\end{enumerate}
+	where $n,j \geq 1$ and $i_1, \ldots, i_n > n$ and $P$ is an URM program which does not contain instructions that call program $Q$ or instructions that call other programs that call program $Q$.
+\end{definition}
+\subsection{Primitive and Partial Recursive Functions}
+\begin{definition}
+	The following functions are called \emph{basic functions}:
+	\begin{enumerate}
+		\item The \emph{zero} functions: $zero : \lambda_x \cdot 0$,
+		\item the \emph{successor} function: $suc = \lambda_x \cdot x + 1$,
+		\item for each $n \in \NN_1$ and $i \in \{ 1, \ldots, n \}$, the \emph{projection} function: $U_i^n = \lambda_{x_1, \ldots, x_n} \cdot x_i$.
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	The basic functions are URM-computable.
+\end{theorem}
+
+\begin{definition}
+	Let $f : \NN_0^k \nrightarrow \NN_0$ and $g_i : \NN_0^n \nrightarrow \NN_0$, for each $i \in \{ 1, \ldots, k \}$. Define $g = (g_1, \ldots, g_k)$ as  
+	\begin{align*}
+	g : \NN_0^n  & \nrightarrow  \NN_0^k \\
+	(x_1, \ldots, x_n)  & \mapsto  g(x_1, \ldots, x_n) \\ 
+	& \simeq (g_1(x_1, \ldots, x_n), \ldots, g_k(x_1, \ldots, x_n)).
+	\end{align*}
+	The composition of $f$ and $g = (g_1, \ldots, g_k)$, denoted $f \circ g$, is the following function:
+	\begin{align*}
+		f \circ g : \NN_0^n & \nrightarrow \NN_0 \\
+		(x_1, \ldots, x_n) & \mapsto (f \circ g)(x_1, \ldots, x_n) \simeq f(g_(x_1, \ldots, x_n)) \\
+				   & \simeq f(g_1(x_1, \ldots, x_n), \ldots, g_k(x_1, \ldots, x_n)).
+	\end{align*}
+Both of these functions are defined at a point $(x_1, \ldots, x_n)$ if and only if $g_1, \ldots, g_n$ are defined at $(x_1, \ldots, x_n)$.
+\end{definition}
+
+\begin{theorem}
+	Let $f:\NN_0^k \nrightarrow \NN_0$ and $g_i : \NN_0^n \nrightarrow \NN_0$, for each $i \in \{ 1, \ldots, k \}$, are computable functions, then the function $h = f \circ ( g_1, \ldots, g_k) : \NN_0^n \nrightarrow \NN0$ defined, for any $(x_1, \ldots, x_n) \in \NN_0^n$, by $h(x_1, \ldots, x_n) \simeq f(g_1(x_1, \ldots, x_n), \ldots, g_k(x_1, \ldots, x_n))$, is also computable. In other words, composition preserves computability.
+\end{theorem}
+
+\begin{definition}
+	Let $k \in \NN_0$ and $n \in \NN_1$. We denote by $k^{(n)}$ the $n$-ary constant function define as follows:
+	\begin{align*}
+		k^{(n)} : \NN_0^n & \nrightarrow \NN_0 \\
+		(x_1, \ldots, x_n) & \mapsto k^{(n)}(x_1, \ldots, x_n) = k
+	\end{align*}
+\end{definition}
+
+\begin{theorem}
+	For every $k \in \NN_0$ and every $n \in \NN_1$ the function $k^{(n)}$ is obtained by composition of basic functions.
+\end{theorem}
+
+% TO-FINISH THIS
+
+\subsection{Turing Machines}
+
+\begin{definition}
+	A \emph{Turing Machine} $M$ is a tuple $(Q, \Gamma, \beta, \Sigma, \delta, q_0, F)$. 
+\end{definition}
+
+\begin{definition}
+	A function $f: \NN_0^n \nrightarrow \NN_0$ is \emph{Turing-computable} if there exists a Turing machine that computes $f$. 
+\end{definition}
+The class of Turing-computable functions is denoted by $\mathcal{T}$.
