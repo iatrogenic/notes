@@ -177,8 +177,8 @@ The predicate $M$ is \emph{decidable} if its characteristic function is computab
 \begin{definition}
 	The following functions are called \emph{basic functions}:
 	\begin{enumerate}
-		\item The \emph{zero} functions: $zero : \lambda_x \cdot 0$,
-		\item the \emph{successor} function: $suc = \lambda_x \cdot x + 1$,
+		\item The \emph{zero} functions: $\mathsf{zero} = \lambda_x \cdot 0$,
+		\item the \emph{successor} function: $\mathsf{suc} = \lambda_x \cdot x + 1$,
 		\item for each $n \in \NN_1$ and $i \in \{ 1, \ldots, n \}$, the \emph{projection} function: $U_i^n = \lambda_{x_1, \ldots, x_n} \cdot x_i$.
 	\end{enumerate}
 \end{definition}
@@ -208,26 +208,60 @@ Both of these functions are defined at a point $(x_1, \ldots, x_n)$ if and only 
 \end{theorem}
 
 \begin{definition}
-	Let $k \in \NN_0$ and $n \in \NN_1$. We denote by $k^{(n)}$ the $n$-ary constant function define as follows:
+	Let $k \in \NN_0$ and $n \in \NN_1$. We denote by $\mathsf{k}^{(n)}$ the $n$-ary constant function define as follows:
 	\begin{align*}
-		k^{(n)} : \NN_0^n & \nrightarrow \NN_0 \\
-		(x_1, \ldots, x_n) & \mapsto k^{(n)}(x_1, \ldots, x_n) = k
+		\mathsf{k}^{(n)} : \NN_0^n & \nrightarrow \NN_0 \\
+		(x_1, \ldots, x_n) & \mapsto \mathsf{k}^{(n)}(x_1, \ldots, x_n) = k
 	\end{align*}
 \end{definition}
 
 \begin{theorem}
-	For every $k \in \NN_0$ and every $n \in \NN_1$ the function $k^{(n)}$ is obtained by composition of basic functions.
+	For every $k \in \NN_0$ and every $n \in \NN_1$ the function $\mathsf{k}^{(n)}$ is obtained by composition of basic functions.
 \end{theorem}
 
 % TO-FINISH THIS
 
-\subsection{Turing Machines}
+\subsection{Bounded and Unbounded Quantification}
 
-\begin{definition}
-	A \emph{Turing Machine} $M$ is a tuple $(Q, \Gamma, \beta, \Sigma, \delta, q_0, F)$. 
-\end{definition}
+\subsection{Alternative Models of Computability}
+\subsubsection*{Turing Machines}
+% TO-DO Introduce a visual representation of Turing Machines
+
+A \emph{Turing Machine} $M$ is an abstract device which ``performs" operations on a tape of infinite length in both directions. This tape is divided in individual squares along its length. At any given moment each square contains a single symbol from a fixed and finite set called the \emph{alphabet of} $M = \{ s_0, \ldots, s_n \}$. We assume that $s_0$ is the \emph{blank} symbol $\beta$ used to denote an empty square. The machine $M$ has a \emph{reading head} which, at any given moment, scans and reads a single square of the tape. This machine is capable of performing the following three kinds of operations on the tape:
+\begin{enumerate}
+\item Erase the symbol of the square being scanned and write one of the symbols in the alphabet;
+\item Move the reading head one square to the right of the square being scanned;
+\item Move the reading head one square to the left of the square being scanned.
+\end{enumerate}
+At any given moment, the machine $M$ is in one of a finite number of \emph{states}, represented by $q_1, q_2, \ldots, q_m$. The execution of an operation may cause the state of $M$ to change.
+
+% Picture here
+
+The operation to be performed by $M$ is determined by its \emph{specification}, denoted by $Q$, and its current state. The set $Q$ is finite and its elements are quadruples, each of which is of the form $(q_i, s_j, s_k, q_l)$, or $(q_i, s_j, R, q_l)$, or $(q_i, s_l, L, q_l)$, with $i,l \in \{ 1, \ldots, m \}$ and $j,k \in \{ 1, \ldots, m \}$. \par
+A quadruple of the form $(q_i, s_j, \alpha, q_l)$ (where $\alpha \in \{ s_k , R, L \}$ in $Q$ specifies the action to be perform by $M$ when it is in state $q_i$ and reading the symbol $s_j$, as follows:
+\begin{enumerate}
+	\item Execute the following operation on the tape:
+		\subitem If $\alpha = s_k$, erase $s_j$ and write $s_k$ in the square being scanned;
+		\subitem If $\alpha = R$, move the reading head one square to the right;
+		\subitem If $\alpha = L$, move the reading head one square to the left.
+	\item Change into state $q_l$.
+\end{enumerate}
+In order for a machine $M$ to begin a computation an initial state is required and its reading head must be positioned over a single square of a given tape. Then $M$ starts performing the actions determined by its specification, as described above. The computation terminates if $M$ is in a state $q_p$ and reading a symbol $s_r$ such that there is no quadruple in $Q$ which starts with $q_p \, s_r$. Unless stated otherwise, given a Turing machine $M$ and an infinite tape, $M$ starts its computation in the state $q_1$ and with its reading head placed over the leftmost non-blank square of the received tape.
+
+\begin{example}
+	Let $M$ be a Turing machine with alphabet $\{ \beta, a , b \}$. This machine may be in only one of two states $q_1$ and $q_2$. Let $Q$ be the following specification of $M$:
+	\begin{gather*}	
+	q_1 \, a \, b \, q_2 \\
+	q_1 \, b \, a \, q_2 \\
+	q_2 \, a \, R \, q_1 \\
+	q_2 \, b \, R \, q_1
+	\end{gather*}
+\end{example}
 
 \begin{definition}
 	A function $f: \NN_0^n \nrightarrow \NN_0$ is \emph{Turing-computable} if there exists a Turing machine that computes $f$. 
 \end{definition}
 The class of Turing-computable functions is denoted by $\mathcal{T}$.
+
+
+%To-Add Later
