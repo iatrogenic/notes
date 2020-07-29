@@ -60,13 +60,13 @@ With theorem \ref{well-def-n} we generalize the notion of recursion to $n+1$-ary
 
 % TO-DO: Examples
 
-\subsection{Equational Calculus}
+\subsection{Algebraic Specification}
 
 \begin{definition}
 	A \emph{signature} is a triple $\Sigma = (S, \mathsf{Op}, \mathsf{type})$, where:
 	\begin{itemize}
 		\item $S$ is a non-empty set, whose elements are called \emph{sorts};
-		\item $\mathsf{Op}$ is a non-empty set, whose elements are called \emph{(symbols of) operations}, and which is such that $S \cap \mathsf{Op} = \emptyset$;
+		\item $\mathsf{Op}$ is a non-empty set, whose elements are called \emph{(symbols of) operations}, such that $S \cap \mathsf{Op} = \emptyset$;
 		\item $\mathsf{type} : \mathsf{Op} \to S^* \times S$, with $S^* = \{ \varepsilon \} \cup \{ s_1 \ldots s_n : n \in \NN_1 \text{ and } \forall_{i=1}^n s_i \in S \}$, where $\varepsilon$ denotes the empty sequence; is a function that associates to each operation:
 			\subitem Its arity (i.e. number of arguments) and the sequence that indicates the sort of each one of its arguments;
 			\subitem The sort of its outcome.
