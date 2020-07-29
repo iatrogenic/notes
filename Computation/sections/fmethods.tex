@@ -1,0 +1,82 @@
+\subsection{Hoare Logic}
+\emph{Hoare logic} is a formal system appropriate for proving the partial correctness of imperative programs.
+
+%TO-DO
+
+\subsection{Recursive Algorithms and Correctness}
+
+\begin{definition}
+	A \emph{well-founded} relation on a set $A$ is a binary relation $R$ which does not contain infinite descending chains, i.e. there is no infinite sequence $a_0, a_1, \ldots$ of elements of $A$ such that for every $n \in \NN_0$ it holds that $a_{n+1}Ra_n$.
+\end{definition}
+
+The symbol ``$\prec$" will often be used to denote a well-founded relation on a set $A$. Suppose $x,y \in A$, if $x \prec y$ then $x$ is said to be a \emph{predecessor} of $y$. 
+
+\begin{theorem}
+	Let $\prec$ be a binary relation on a set $A$. Then $\prec$ is a well-founded relation on $A$ if and only if every non-empty subset $X$ of $A$ contains a minimal element, i.e., there exists some $c$ such that: $c \in X$ and $\nexists_a \in x : a \prec c$.
+\end{theorem}
+
+In all that follows $L$ denotes the set of of all lists (of any kind of elements) and $L^+$ denotes the set of all non-empty lists. Furthermore, given a list $w$:
+\begin{itemize}
+	\item $\# w$ denotes the length $w$;
+	\item $w_i$ (with $w \neq \{ \}$ and $i \in \{ 1, \ldots, \# w \}$) denotes the element which is in the position $i$ of list $w$;
+	\item $w \setminus w_i$ (with $w \neq \{ \}$ and $i \in \{ 1, \ldots, \# w \}$) denotes the list that is obtained from $w$ by deleting the element contained in position $i$.
+\end{itemize}
+
+\subsubsection*{Definition of functions using recursion}
+
+\begin{theorem} \label{well-def}
+	There exists one and only one function $u : A \to B$ such that:
+	\begin{enumerate}
+	\item 
+		For any minimal element $y$ of $A$:
+		\[ u(y) = f(y), \]
+		for some fixed function $f : A \to B$, i.e. the value $u(y)$ is defined explicitly in terms of $y$ without using the value of $u$ at any other point.
+	\item
+		For any non-minimal element $y$ of $A$
+		\[u(y) = g(y, \{(k, u(k)) : k \prec y \}, \]
+		for some fixed function $g$ which is defined at every pair of the form $(y, R_y)$, where $y$ is a non-minimal element of $A$, and $R_y = \{ (a,b) \in A \times B : a \prec y \}$
+		and is a functional relation.
+	\end{enumerate}
+\end{theorem}
+A unuary function $u : A \to B$ is said to be \emph{well defined recursively} if it satisfied both properties of theorem \ref{well-def}.
+
+\begin{theorem}\label{well-def-n}
+	Let $n \in \NN_1$ and let $X_1, \ldots, X_n$ be any sets. There exists one and only one function $u: X_1 \times \cdots \times X_n \times A \to B$ such that:
+	\begin{enumerate}
+		\item For any $x_i \in A$ (with $i \in \{1, \ldots, n\}$) and any minimal element $y$ of $A$
+			\[
+			u(x_1, \ldots, x_n, y) = f(x_1, \ldots, x_n, y),
+			\]
+			for some fixed function $f : X_1 \times \cdots X_n \times A \to B$.
+		\item
+			For $x_i \in X_i$ (with $i \in \{ 1, \ldots, n \}$) and any non-minial element $y$ of $A$
+			\[
+			u(x_1, \ldots, x_n,y) = g(x_1, \ldots, x_n,y, \{(k, u(x_1, \ldots, x_n,k)) : k \prec y\}),
+			\]
+			for some fixed function $g$ which is defined at every $n+2$-uples of the form $(x_1, ldots, x_n,y, R_y)$, where $x_i \in X_i$, $y$ is a non-minimal element of $A$, and $R_y = \{ (a,b) \in A \times B : a \prec y \} $ and is a functional relation.
+	\end{enumerate}
+\end{theorem}
+With theorem \ref{well-def-n} we generalize the notion of recursion to $n+1$-ary functions.
+
+% TO-DO: Examples
+
+\subsection{Equational Calculus}
+
+\begin{definition}
+	A \emph{signature} is a triple $\Sigma = (S, \mathsf{Op}, \mathsf{type})$, where:
+	\begin{itemize}
+		\item $S$ is a non-empty set, whose elements are called \emph{sorts};
+		\item $\mathsf{Op}$ is a non-empty set, whose elements are called \emph{(symbols of) operations}, and which is such that $S \cap \mathsf{Op} = \emptyset$;
+		\item $\mathsf{type} : \mathsf{Op} \to S^* \times S$, with $S^* = \{ \varepsilon \} \cup \{ s_1 \ldots s_n : n \in \NN_1 \text{ and } \forall_{i=1}^n s_i \in S \}$, where $\varepsilon$ denotes the empty sequence; is a function that associates to each operation:
+			\subitem Its arity (i.e. number of arguments) and the sequence that indicates the sort of each one of its arguments;
+			\subitem The sort of its outcome.
+
+		This information is designated by \emph{declaration} or \emph{sort} or \emph{type} of an operation.
+	\end{itemize}
+\end{definition}
+In the specification of abstract data types constants are usually presented as $0$-ary operations.\par
+Let $\circ \in \mathsf{Op}$ be an operation such that $\mathsf{type}(\circ) = (s_1 \ldots s_n, s)$, with $n \in \NN_1$. The sequence $s_1 \ldots s_n$ indicates the type of each one of the $n$ arguments of $\circ$ and $s$ is the type of its outcome. \par
+If $\circ \in \mathsf{Op}$ is an operation such that $\mathsf{type}(\circ) = ( \varepsilon, s )$ then $\circ$ is a constant. In this case we say that $\circ$ is a constant of type $s$. \par
+In what follows we shall often write $\circ : s_1 \ldots s_n \to s$ to indicate that $\circ \in \mathsf{Op}$ and $\mathsf{type}(\circ) = (s_1 \ldots s_n, s)$, with $n \in \NN_1$. Analogously, we shall write $\circ : \to s$ to indicate that $\circ \in \mathsf{Op}$ and $\mathsf{type}(\circ) = (\varepsilon, s)$, i.e. $\circ : \to s$ means that $\circ$ is a constant of type $s$.
+
+

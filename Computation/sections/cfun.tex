@@ -21,7 +21,7 @@ Henceforth the word ``function" will always mean ``partial function."  As an exa
 If $n \in \NN_0$ is not a perfect square, then $f(n)$ is undefined. 
 
 \subsubsection*{Lambda Notation}
-We will often use Alonzo Church's \emph{lambda notation}. Given a mathematical expression $a(x_1, \ldots, x_n)$ the function $f: \NN_0^n \to \NN_0$ that maps $(x_1, \ldots, x_n) \mapsto a(x_1, \ldots, x_n)$ may be denoted by $\lambda_{x_1, \ldots, x_n}.f(x_1, \ldots, x_n)$ .
+We will often use Alonzo Church's \emph{lambda notation}. Given a mathematical expression $a(x_1, \ldots, x_n)$ the function $f: \NN_0^n \to \NN_0$ that maps $(x_1, \ldots, x_n) \mapsto a(x_1, \ldots, x_n)$ may be denoted by $f = \lambda_{x_1, \ldots, x_n} \cdot a(x_1, \ldots, x_n)$ .
 \subsection{The URM}
 \subsubsection*{Informal Discussion}
 An \emph{algorithm} is a finite sequence of discrete mechanical instructions. A numerical function is \emph{effectively computable} (or simply \emph{computable}) if an algorithm exists that can be used to calculate the value of the function for any given input from its domain.
@@ -226,6 +226,7 @@ Both of these functions are defined at a point $(x_1, \ldots, x_n)$ if and only 
 \subsection{Alternative Models of Computability}
 \subsubsection*{Turing Machines}
 % TO-DO Introduce a visual representation of Turing Machines
+% This is pretty bad
 
 A \emph{Turing Machine} $M$ is an abstract device which ``performs" operations on a tape of infinite length in both directions. This tape is divided in individual squares along its length. At any given moment each square contains a single symbol from a fixed and finite set called the \emph{alphabet of} $M = \{ s_0, \ldots, s_n \}$. We assume that $s_0$ is the \emph{blank} symbol $\beta$ used to denote an empty square. The machine $M$ has a \emph{reading head} which, at any given moment, scans and reads a single square of the tape. This machine is capable of performing the following three kinds of operations on the tape:
 \begin{enumerate}
@@ -258,10 +259,7 @@ In order for a machine $M$ to begin a computation an initial state is required a
 	\end{gather*}
 \end{example}
 
-\begin{definition}
-	A function $f: \NN_0^n \nrightarrow \NN_0$ is \emph{Turing-computable} if there exists a Turing machine that computes $f$. 
-\end{definition}
-The class of Turing-computable functions is denoted by $\mathcal{T}$.
+A numerical function $f: \NN_0^n \nrightarrow \NN_0$ is \emph{Turing-computable} if there exists a Turing machine that computes $f$. The class such functions is denoted by $\mathcal{T}$.
 
 
 %To-Add Later
