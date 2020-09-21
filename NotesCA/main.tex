@@ -12,6 +12,7 @@
 \usepackage{commath}
 
 \newcommand{\CC}{\mathbb{C}}
+\newcommand{\KK}{\mathbb{K}}
 \newcommand{\PP}{\mathbb{P}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\NN}{\mathbb{N}}
@@ -43,197 +44,24 @@
 \maketitle
 \tableofcontents
 \newpage
-\section{Analytic Functions}
-\subsection{The Complex Number System}
-\begin{definition}
-Consider the following maps:
-\begin{itemize}
-	\item
-		\textbf{Addition}
-		\begin{gather*}
-			\RR^2 \times \RR^2 \to \RR^2 \\
-			(x_1, y_1) + (x_2, y_2) = (x_1 + x_2, y_1 + y_2)
-		\end{gather*} 
-	\item
-		\textbf{Scalar Multiplication}
-		\begin{gather*}
-			\RR \times \RR^2 \to \RR^2 \\
-			\alpha (x, y) = (\alpha x, \alpha y)
-		\end{gather*}
-	\item
-		\textbf{Multiplication}
-		\begin{gather*}
-			\RR^2 \times \RR^2 \to \RR^2	
-			(x_1, y_1) \cdot (x_2, y_2) = (x_1 x_2 - y_1 y_2, x_1 y_2 + y_1 x_2)
-		\end{gather*}
-\end{itemize}
-These operations, together with the set $\RR^2$, form a vector space over $\RR$, which we call the complex number system, denoted by $\CC$. We identify a real number $x$ with the pair $(x,0)$, and $(0,1)$ will be denoted by $i$. With this we recover the conventional notation, for 
+\section{Power Series in One Variable}
+\subsection{The Field of Complex Numbers}
+
+\subsection{Formal Power Series}
+Let $\KK$ be a field. The set of formal polynomial in indeterminate $X$ with coefficients in $\KK$ is denoted by $\KK[X]$. This set, equipped with the usual polynomial addition and scalar multiplication, is an infinite dimensional vector space, spanned by the basis: \[ 1, X, \ldots, X^n, \ldots \]
+
+	Multiplication of polynomials defines a bilinear product. This additional operation turns $\KK[X]$ into an \emph{algebra}. If we drop the ``finitely many non-zero coefficients" requirement in the definition of polynomial we arrive at the definition of a \emph{formal power series}. The set of all formal power series with coefficients in field $\KK$ is denoted by $\KK[[X]]$. The algebra $\KK[X]$ is identified with a subalgebra of $\KK[[X]]$.
+\par
+Let $S = \sum_{n \geq 0} a_nX^n \neq 0$ be a formal power series. The \emph{order} of $S$, denoted by $\omega(S)$, is the smallest $k$ such that $a_k \neq 0$. The order of $0 \in \KK[[X]]$ is $\infty$.
+\par
+A family of power series $(S_i \in \KK[[X]]: i \in I)$  is said to be \emph{summable} if for any $k \in \NN$, $\omega(S_i) \geq k$ for all but a finite number number of indices $I$. The \emph{sum} of a summable family offormal series
 \[
-	(x,y) = (x,0) + (0,1)(y,0) = x + iy.
+	S_i(X) = \sum_{n \geq 0} a_{n,i} X^n
 \]
-We call the $x$-axis and $y$-axis by \emph{real} and \emph{imaginary} axis, respectively. Given $z = a+bi \in \CC$, we call $a$ the \emph{real part} of $z$, denoted by $\Re(z)$, and $b$ the \emph{imaginary part} of $z$, denoted by $\Im(z)$. Finally, $z$ is said to be a \emph{pure imaginary number} if $\Re(z) = a = 0$. 
-\end{definition}
-\subsubsection{Algebraic Properties}
-\begin{prop}
-	Let $z$ be a non-zero complex number, then there exists $z^\prime \in \CC$, such that
-	\[ z\cdot z^\prime = 1 , \]
-	called the inverse of $z$.
-\end{prop}
-\begin{proof}
-	Let $z = a+bi$ and $z^\prime = \frac{a}{a^2 + b^2} - \frac{ib}{a^2+b^2}$. $z \neq 0$ implies that $a^2 + b^2 \neq 0$. Furthermore,
-	\begin{align*}
-		z \cdot z^\prime &= (a+bi) \left (\frac{a}{a^2 + b^2} - \frac{ib}{a^2+b^2} \right) \\
-		&= \left ( \frac{a^2 + abi - abi + b^2}{a^2+b^2} \right ) \\
-		&= 1.
-	\end{align*}
-\end{proof}
-The inverse of a complex number $z$ is unique, and represented by $z^{-1}$; the symbol $z/w$ means $zw^{-1}$.
-\begin{theorem}
-	$\CC$, together with the previously defined addition and multiplication, is a field.	
-\end{theorem}
-\subsubsection{Roots of Quadratic Equations}
-\begin{prop}
-Let $z \in \CC$. Then there exists a complex number $w \in \CC$ such that $w^2 = z$.	
-\end{prop}
-[To-Finish]
-\subsection{Properties of Complex Numbers}
-\subsubsection{Polar Representation}
-The \emph{modulus} of a complex number $z=a+bi$ is its norm, i.e., $\norm{a+bi} = \norm{(a,b)} = \sqrt{a^2 + b^2}$, conventionally written as $\abs{z}$. Let $\theta$ be the angle that $z$ makes with the positive real axis, where $0 \leq \theta < 2\pi$, and $r = \abs{z}$ Then $z$ may be rewritten as
+is the series
 \[ 
-	a+bi = r \cos \theta + (r \sin \theta) i = r(\cos \theta + i \sin \theta).
+S(X) = \sum_{n \geq 0} a_n X^n
 \]
-This way of writing $z$ is called the \emph{polar coordinate representation}. The angle $\theta$ is called the \emph{argument} of $z$ and is denoted $\theta = \arg z$.
-[To-Do: Insert Figures]
-The inverval $[0, 2 \pi[$ is an arbitrary choice, any other interval $[a,b[$ of length $2\pi$ could be specified and the resulting representation would be unique, granted that the relevant complex number is not equal to zero. Alternatively, $\arg z$ may be defined as the set of values $\{ \theta + 2n \pi : n \in \ZZ \}$. Specifying a particular suitable interval for the angle is known as choosing a \emph{branch of the argument}.
-\subsubsection{Multiplication of Complex Numbers}
-Let $z_1 = r_1(\cos \theta_1 + i \sin \theta_1)$ and $z_2 = r_2(\cos \theta_2 + i \sin \theta_2)$. Then
-\begin{align*}
-	z_1 z_2 &= r_1 r_2 [(\cos \theta_1 \cdot \cos \theta_2 - \sin \theta_1 \cdot \sin \theta_2)] + i[\cos \theta_1 \cdot \sin \theta_2 + \cos \theta_2 \cdot \sin \theta_2)] \\
-		&= r_1 r_2 [\cos(\theta_1+\theta_2)+i \sin(\theta_1 + \theta_2)].
-\end{align*}
-Which proves the following proposition.
-\begin{prop}
-For any complex numbers $z_1, z_2$,
-\[
-	\abs{z_1 z_2} = \abs{z_1} \abs{z_2} \text{ and } \arg(z_1 z_2) = \arg z_1 + \arg z_2 \pmod {2\pi}
-\]
-\end{prop}
-\begin{example}
-	Let $z_1 = -1$ and $z_2 = -i$, then $\arg z_1 = \pi$ and $\arg z_2 = 3 \pi /2$. Since $z_1 z_2 = i$, then $\arg z_1 z_2 = \pi/2$. Using the previous proposition, we'd get $\arg z_1 + \arg z_2 = \pi + 3 \pi/2 = 5 \pi /2$, which isn't in the interval $[0,2 \pi[$. Subtracting $2 \pi$ from this result yields the correct value for $\arg z_1 z_2$.	
-\end{example}
-\subsubsection{De Moivre's Formula}
-\begin{prop}
-	If $z =  r(\cos \theta + i \sin \theta)$ and $n$ is a positive integer, then
-	\[
-		z^n = r^n(\cos n \theta + i \sin n\theta).
-	\]
-\end{prop}
-\begin{proof}
-	Use induction.	
-\end{proof}
-As an application, consider the equation $z^n = w$, with $w \in \CC$. Suppose that $w = r(\cos \theta + i \sin \theta)$ and $z = \rho ( \cos \psi + i \sin \psi )$. By De Moivre's formula, $z^n = \rho^n(\cos n \psi + i \sin n \psi)$, which implies that $\rho^n = r = \abs{w}$ and $n \psi = \theta + 2k \pi$, where $k$ is some integer. Thus
-\[
-	z = \sqrt[n]{r} \left [ \cos \left (\frac{\theta}{n} + \frac{2k\pi}{n} \right ) + i \sin \left (  \frac{\theta}{n} + \frac{2k\pi}{n} \right ) \right ].
-\]
-Each value of $k = 0, 1, \dots, n-1$, gives different values of $z$. Any other value for $k$ repeats one of the values of $z$ corresponding to $k = 0, 1, \ldots, n-1$. Thus there are exactly $n$ $n$-th roots of a nonzero complex number.
-\begin{corollary}
-	Let $w \in \CC \setminus \{ 0 \}$, with polar representation $w = r ( \cos \theta + i \sin \theta)$. The $n$th roots of $w$ are given by the $n$ complex numbers
-	\[ 
-		z_k = \sqrt[n]{r} \left [ \cos \left (\frac{\theta}{n} + \frac{2k\pi}{n} \right ) + i \sin \left (  \frac{\theta}{n} + \frac{2k\pi}{n} \right ) \right ], \quad k = 0, 1, \ldots n-1.
-	\]
-\end{corollary}
-\subsubsection{Complex Conjugation}
-The transformation $a+bi \mapsto a-bi$ is called \emph{complex conjugation}, and $a-bi$ is the \emph{conjugate} of $a+bi$. The conjugate of $z \in \CC$ is denoted by $\overline z$.
-\begin{prop}
-Let $z,w \in \CC$, then
-\begin{enumerate}
-	\item
-		$\overline{z + w} = \overline z + \overline w$,
-	\item
-		$\overline{zw} = \overline z \overline w$,
-	\item
-		If $w \neq 0$, then $\overline{z/w} = \overline z / \overline w$, 
-	\item
-		$z \overline z = \abs{z}^2$,
-	\item
-		$z = \overline z \Leftrightarrow z \in \RR$,
-	\item
-		$\Re z = (z + \overline z)/2$ and $\Im z = (z - \overline z)/2i$,
-	\item
-		$\overline{\overline z} = z$.
-\end{enumerate}
-\end{prop}
-\begin{prop}
-Let $z, w, z_1, \ldots, z_n, w_1, \ldots, w_n \in \CC$, then
-\begin{enumerate}
-	\item
-		$\abs{zw} = \abs z \abs w$,
-	\item
-		$-\abs z \leq \Re z \leq \abs z$ and $-\abs z \leq \Im z \leq \abs z$,
-	\item
-		$\abs{ \overline z } = \abs z$,
-	\item
-		$\abs{z+w} \leq \abs z + \abs w$,
-	\item
-		$\abs{z-w} \geq \abs{ \abs z - \abs w}$,
-	\item
-		$\abs{z_1w_1 + \ldots z_n w_n} \leq \sqrt{\abs{z_1}^2 + \ldots \abs{z_n}^2} \sqrt{\abs{w_1}^2 + \ldots + \abs{w_n}^2} $.
-\end{enumerate}
-\end{prop}
-\subsection{Elementary Functions}
-\subsubsection{The Exponential Function}
-\begin{definition}
-	Let $z = x+iy \in \CC$, we define
-	\[
-		\exp(z) = e^{z} = e^x(\cos y + i \sin y). 
-	\]$$
-\end{definition}
-A function $f : \CC \to \CC$ is said to be \emph{periodic} if there exists $w \in \CC$ such that $f(z+w) = f(z)$ for all $z \in \CC$. The following proposition establishes some of the properties of the exponential function.
-\begin{prop} Let $z,w \in \CC$,
-	\begin{enumerate}
-		\item
-		$e^{z+w} = e^z e^w$,
-	\item
-		$e^z \neq 0$,
-	\item
-		If $x \in \RR$, then $e^x > 1$ when $x > 0$ and $0 < e^x < 1 $ when $x < 0$,
-	\item
-		$\abs{e^{x+yi}} = e^x$,
-	\item
-		$e^z$ is periodic; each period for $e^z$ has the form $2k\pi i$ for some integer $k$,
-	\item
-		$e^z = 1 \Leftrightarrow z = 2k \pi i$ for some integer $k$.
-	\end{enumerate}
-\end{prop}
-\subsubsection{Trigonometric Functions}
-\begin{definition} Let $z$ be a complex number.
-	\[
-		\sin z = \frac{e^{iz} - e^{-iz}}{2i} \text{ and } \cos z = \frac{e^{iz}+ e^{-iz}}{2}.	
-	\]
-\end{definition}
-\begin{prop} Let $z, w \in \CC$
-\begin{enumerate}
-	\item
-		$\sin^2 z + \cos^2 z = 1$,
-	\item
-		$\sin(z + w) = \sin z \cos w + \cos z  \sin w$,
-	\item
-		$\cos(z+w) = \cos z \cos w - \sin z \sin w$.
-\end{enumerate}	
-\end{prop}
-\subsubsection{Logarithm Function}
-Since the complex exponential function is not bijective, we cannot naively define its inverse, the logarithm. 
-\begin{prop}
-	Consider the set $A_{y_0} = \{ x + iy : x \in \RR \text{ and } y_0 \leq y < y_0 + 2 \pi \}$.
-	Then the exponential function with its domain restricted to this set, $e^z : A_{y_0} \to \CC \setminus \{ 0 \}$, is injective.  
-\end{prop}
-\begin{definition}
-	The function $\log : \CC \setminus \{ 0 \} \to \CC$, with $y_0 \leq \Im \log z < y_o + 2 \pi$, is defined by
-	\[
-		\log z = \log \abs z + i \arg z,
-	\]
-	where $\Im \log z = \arg z \in [y_0 , y_0 + 2 \pi[$, and $\log \abs z$ is the usual logarithm where $\abs z$ is a real number.	
-\end{definition}
-The logarithm function is only well-defined when we fix a branch, that is an interval of length $2\pi$, in which $\arg z$ takes its values. 
+where, for each n, $a_n = \sum_i a_{n,i}$.
 
 \end{document}
